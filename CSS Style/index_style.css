@@ -1,111 +1,83 @@
-/* Login popup */
-.login-popup {
-    position: fixed;
-    top: 10%;
-    right: 0%;
-    width: 300px;
-    background-color: #3393dc;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
-    display: none;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .login-popup.active {
-    display: flex;
-  }
-  
-  .login-popup h2 {
-    margin: 15px 0 20px;
-    font-size: 18px;
-    color: #00b7ea;
-    text-align: center;
-  }
-  
-  .login-popup input[type="text"],
-  .login-popup input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-  }
-  
-  .login-popup button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background-color: #0562ef;
-    color: white;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  
-  .login-popup button:hover {
-    background-color: #0562ef;
-  }
-  
-  .login-popup .close {
-    position: absolute;
-    top: -15px; /* Verschiebt das X nach oben */
-    left: 50%;
-    transform: translateX(-50%);
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: #333;
-  }
-  
-  .login-popup .close:hover {
-    color: red;
-  }
+/* Container für Suchleiste und Login-Button */
+.search-login-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-wrap: wrap; /* Elemente umbrechen, falls nicht genügend Platz vorhanden ist */
+  align-items: center;
+  gap: 10px; /* Abstand zwischen Suchleiste und Login-Button */
+  z-index: 1000; /* Immer im Vordergrund */
+}
 
+/* Suchleiste Styling */
+.search-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.search-container input[type="text"] {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+  width: 200px; /* Breite der Suchleiste */
+}
+
+.search-container button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Login-Button Styling */
 .login-container {
-    position: fixed;
-    top: 10%;
-    right: 0;
-    width: 60px;
-    height: 120px;
-    background-color: #3393dc;
-    border-radius: 15px 0 0 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 1000;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+  width: 60px;
+  height: 60px;
+  background-color: #3393dc;
+  border-radius: 50%; /* Runde Form */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.login-container:hover {
+  transform: scale(1.05);
+  background-color: #00b7ea;
+}
+
+.login-container img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Responsives Verhalten */
+@media (max-width: 768px) {
+  .search-login-container {
+    flex-direction: column; /* Elemente stapeln */
+    align-items: flex-start; /* Elemente linksbündig ausrichten */
+    gap: 15px; /* Mehr Abstand zwischen Suchleiste und Login-Button */
   }
 
-  .login-container:hover {
-    transform: scale(1.05);
-    background-color: #00b7ea;
+  .search-container input[type="text"] {
+    width: 100%; /* Suchleiste wird breiter bei kleineren Bildschirmen */
   }
 
-  .login-container img {
-    width: 40px;
-    height: 40px;
+  .login-container {
+    width: 50px; /* Kleinere Größe für Mobilgeräte */
+    height: 50px;
   }
-
-  /* Animation */
-  .login-container.animate {
-    animation: slideIn 0.6s ease;
-  }
-
-  @keyframes slideIn {
-    0% {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
+}
 
   /* Login popup */
   .login-popup {
