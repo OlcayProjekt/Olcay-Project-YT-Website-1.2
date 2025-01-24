@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="taralino.js"></script>
+</head>
+<body>
+<script>
+
+Canvas.init([0,6], [0,4], {width:480, background:"lightgrey"});
+
+for (var x = 0.6; x < 5.6; x = x+0.4) {
+  Canvas.circle(x, 2.0, 0.15, {fill:"blue"});
+};
+
+for (var x = 5.2; x > 2.0; x = x-0.3) {
+  Canvas.circle(x, 2.0, 0.05, {fill:"red"});
+};
+
+</script>
+</body>
+</html>
