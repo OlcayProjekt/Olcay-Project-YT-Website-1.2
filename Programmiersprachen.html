@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<meta charset="UTF-8">
+
+	<title>Programmiersprachen</title>
+	<link rel="icon" type="image/jpg" href="Gegenstände/web-programmierung.png">
+	<link rel="stylesheet" href="./CSS Style/programmiersprachen.css">
+
+</head>
+
+<body>
+
+	<div class="search-container">
+		<input type="text" id="search" placeholder="Suche...">
+		<button id=".search-container button" onclick="search()">🔍</button>
+	</div>
+
+	<!-- Login icon container -->
+	<div class="login-container" id="loginBtn">
+		<img src="Gegenstände/login.png" alt="Logo">
+	</div>
+
+	<!-- Login popup -->
+	<div class="login-popup" id="loginPopup">
+		<h2>Speicher Funktion</h2>
+		<input type="text" placeholder="Username" id="username">
+		<input type="password" placeholder="Password" id="password">
+		<button id="submitLogin">Login</button>
+	</div>
+
+	<script src="JS/suchleiste.js"></script>
+	<script src="JS/login.js"></script>
+	<main>
+		<h1 id="Überschrift">Web Programmiersprachen</h1>
+
+		<h4>Navigations Leiste:</h4>
+		<nav>
+			<ul>
+				<li> <a href="index.html">Startseite</a> </li>
+				<li> <a href="Bibilothek.html">Bibilothek</a> </li>
+				<li> <a href="Umfrage.html">Umfrage</a> </li>
+				<li> <a href="Geschichte-Olcay.html">Geschichte</a> </li>
+				<li> <a href="Sonstiges.html">Sonstiges</a> </li>
+				<li> <a href="https://www.youtube.com/@olcayprojekt" target="_blanke">Youtube Kanal Olcay & Projekt </a>
+				</li>
+				<li> <a href="https://www.tiktok.com/@olcayprojekt" target="_blanke">Tiktok Kanal Olcay & Projekt</a>
+				</li>
+				<li> <a href="https://www.instagram.com/olcayundprojekt/" target="_blanke">Instagram Olcay & Projekt</a>
+				</li>
+				<li> <a href="https://www.facebook.com/olcayundprojekt/" targett="_blanke">Facebook Olcay Projekt</a>
+				</li>
+				<li> <a href="https://www.twitch.tv/olcayprojekt" target="_blanke">Twitch Kanal OlcayProjekt</a> </li>
+				<li> <a href="https://twitter.com/olcayprojekt" target="_blanke">Twitter/X Kanal Olcay&Projekt</a></li>
+				<li> <a href="https://discord.com/invite/BVzfEvpKb3" target="_blanke">Discord</a></li>
+			</ul>
+		</nav>
+
+		<hr color="Red">
+
+		<p>Letzte Aktualiesierung 6.Dezember 2024 9:50</p>
+
+		<hr color="Red">
+
+		<video width="650" height="350" autoplay loop muted>
+			<source src="Video/Code Web.mp4" type="video/mp4">
+		</video>
+
+		<div class="container web">
+
+			<!-- Linke Seite: Web Tools -->
+			<div class="left">
+				<h2>Web Tools</h2>
+			</div>
+
+			<!-- Rechte Seite: Programmiersprachen -->
+			<div class="right">
+				<div class="language">
+					<img src="./Gegenstände/HTML5.png" alt="HTML Logo" class="logo">
+					<p>HTML</p>
+				</div>
+				<div class="language">
+					<img src="./Gegenstände/CSS Logo.png" alt="CSS Logo" class="logo">
+					<p>CSS</p>
+				</div>
+				<div class="language">
+					<img src="./Gegenstände/JS Logo.png" alt="JavaScript Logo" class="logo">
+					<p>JavaScript</p>
+				</div>
+			</div>
+		</div>
+		
+
+		<h2>Einführung zum Aufgabenbereich:</h2>
+
+		<p>Um eine Webseite zu programmieren, benötigt man eine sogenannte Programmiersprache. Im Bereich der
+			Webentwicklung kommen vor allem drei Sprachen zum Einsatz, die eng zusammenarbeiten und jeweils eine
+			spezifische Rolle spielen: HTML, CSS, und JavaScript. Sie bilden die Grundlage für moderne und interaktive
+			Webseiten.</p>
+
+		<h2>Im welchem Aufgabenbereich wird die jeweilige Sprache eingesetzt:</h2>
+
+		<p>HTML definiert die Struktur der Webseite (Was soll angezeigt werden?).
+			CSS bestimmt das Aussehen der Webseite (Wie soll es aussehen?).
+			JavaScript macht die Webseite interaktiv und dynamisch (Wie funktioniert es?).</p>
+
+		<nav>
+			<button .sprachenbutton class="topic-btn" data-target="html-section">HTML</button>
+			<button .sprachenbutton class="topic-btn" data-target="css-section">CSS</button>
+			<button .sprachenbutton class="topic-btn" data-target="javascript-section">JavaScript</button>
+		</nav>
+
+		<section id="html-section" class="topic-section">
+
+			<h2 id="HTML">Was ist HTML</h2>
+
+			<p>Die HTML (Hypertext Markup Language) ist eine textbasierte Auszeichnungssprache zur Strukturierung
+				elektronischer
+				Dokumente wie Texte mit Hyperlinks, Bildern und anderen Inhalten.</p>
+
+			<img src="Gegenstände/Sir Tim Berners-Lee HTML.webp" width="450" height="250">
+
+			<p>HTML-Dokumente sind die Grundlage des World Wide Web und werden von Webbrowsern dargestellt.</p>
+
+			<img src="Gegenstände/HTML5.png" width="250" height="250">
+
+			<h3 id="HTML-ERKLÄRT">Das Grundgerüst von HTML</h3>
+
+			<p>Jedes HTML Grundgerüst besteht aus denn folgenden Tags. (HTML Elementen)</p>
+
+			<p>Wie so eben erwähnt gibt es HTML Elemente die Tags gennant werden.</p>
+
+			<div class="code-box">
+				<img id="Gerüst" src="Gegenstände/Tags.png" alt="Beispielbild">
+				<pre><code>
+			  // Tags Aufbau Erklärt 
+			  <p>Der Tag eines HTML elementes wird mit so einem Zeichen gestartet < und so beendet ></p>
+			  <p>Das Tag wurde aber damit nur aufgemacht um ihn wieder zu schließen muss man denn Tag wiederholen und nach dem < ein / einfügen.</p>
+			</code></pre>
+			</div>
+
+
+			<div class="code-box">
+				<img id="Gerüst" src="Gegenstände/Gerüst.webp" alt="Beispielbild">
+				<pre><code>
+			  // Das Grundgerüst (Tab+!) 
+			  &lt;!DOCTYPE html>
+		  &lt;html lang="en">
+		  &lt;head>
+			  &lt;meta charset="UTF-8">
+			  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+			  &lt;title>Document</title>
+		  &lt;/head>
+		  &lt;body>
+	
+		  &lt;/body>
+		  &lt;/html>
+			</code></pre>
+			</div>
+
+			<h3 id="HTML-ERKLÄRT">Die Beziehung zwischen HTML, CSS und Javascript</h3>
+
+			<p>Man kann die eben gennaten Programmiersprachen bei HTML Webseiten einbinden</p>
+
+			<p>oder auch für die Speziellen Sprachen eigene Datein speichern um denn Code sauberer zu programmieren</p>
+
+			<h3 id="HTML-ERKLÄRT">HTML5 Intergration</h3>
+
+			<p>HTML5 revolutionierte die Webentwicklung, indem es eine Vielzahl von neuen Technologien einführte,</p>
+
+			<p>z.B wurden die Multimedia-Unterstützung eingeführt wie ebenfalls Tags die denn Code besser
+				veranschaulichen.
+			</p>
+
+			<h2>Mehr Infos:</h2>
+
+			<iframe width="900" height="535" src="https://www.youtube.com/embed/OfZGwkfveM8"
+				title="Erstellen Sie eine Website aus HTML- und CSS-Elementen | Olcay&amp;Projekt (4K/DEUTSCH)"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+		</section>
+
+		<section id="css-section" class="topic-section">
+
+			<h2 id="CSS">Was ist CSS</h2>
+
+			<p>CSS ist die Abkürzung für “Cascading Style Sheets”</p>
+
+			<img src="Gegenstände/css.jpg" width="470" height="250">
+
+			<p>CSS ist eine Computersprache um Websites aufzubauen und zu strukturieren (HTML oder XML).
+
+				Diese Sprache enthält Code-Elemente und setzt sich aus diesen “Cascading Style Sheets“ zusammen, die
+				auch
+				CSS-Dateien (.css) genannt werden.</p>
+
+			<img src="Gegenstände/CSS Logo.png" width="250" height="250">
+
+			<h3 id="CSS-ERKLÄRT">Vorteile von CSS</h3>
+			<p>Trennung von Stil und Inhalt: HTML beschreibt die Struktur, CSS kümmert sich um das Design.</p>
+			<p>Wiederverwendbarkeit: Eine CSS-Datei kann auf mehrere Seiten angewendet werden.</p>
+			<p>Konsistenz: Änderungen in der CSS-Datei aktualisieren das Design auf der gesamten Webseite.</p>
+
+			<h2>Mehr Infos:</h2>
+
+			<iframe width="900" height="535" src="https://www.youtube.com/embed/OfZGwkfveM8"
+				title="Erstellen Sie eine Website aus HTML- und CSS-Elementen | Olcay&amp;Projekt (4K/DEUTSCH)"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+		</section>
+
+		<section id="javascript-section" class="topic-section">
+
+
+			<h2 id="JavaScriptÜberschrift">Was ist Javascript</h2>
+
+			<p>Die Abkürzung von JavaScript ist JS</p>
+
+			<p>JavaScript ist eine Programmiersprache, die Entwickler verwenden, um interaktive Webseiten zu erstellen
+			</p>
+
+			<p>Von der Aktualisierung von Social Media Feeds bis hin zur Anzeige von Animationen und interaktiven Karten
+				können JavaScript-Funktionen die Benutzerfreundlichkeit einer Website verbessern.</p>
+			
+			<p>JavaScript läuft in nahezu jedem Webbrowser und wird durch moderne Engines wie V8 (Google Chrome) oder SpiderMonkey (Mozilla Firefox) interpretiert und ausgeführt.</p>
+
+			<p>Dank seiner Flexibilität und der Vielzahl an Frameworks und Bibliotheken ist JavaScript heute eine der wichtigsten und am häufigsten verwendeten Programmiersprachen der Welt.</p>
+
+			<img src="Gegenstände/JS Logo.png" width="250" height="250">
+
+			<p id="meinAbsatz">Ich bin ein Absatz!</p>
+
+			<button id="meinButton">Ich bin ein button</button>
+
+			<h4>JavaScript Navigations Leiste:</h4>
+
+			<img src="Gegenstände/javascript.webp" width="460" height="250">
+
+			<p>Weiterleitung zur anderen Projekten die mit JV erstellt wurden:</p>
+
+			<li> <a href="Chatbot-Javascript.html">Chatbot-Javascript</a> </li>
+
+			<li> <a href="Cookie-clicker.html">Cookie-clicker></a> </li>
+
+			<li> <a href="SIMPLE_SNAKE_GAME.html">SIMPLE_SNAKE_GAME></a> </li>
+		</section>
+
+		<script>
+			//Hinter zwei Schrägstrichen stehen Kommentare für Menschen,die der Computer ignoriert.
+
+			console.log("Anweisungen");
+			console.log("werden");
+			console.log("von");
+
+			//Man kann auch mehrere Anweisungen in die gleiche Zeile schreiben,aber das wird schnell unübersichtlich.
+			console.log("oben"); console.log("nach"); console.log("unten")
+			console.log("abgearbeitet");
+
+			console.log("Anweisungen enden (bei uns)immer mit einem;");
+
+			//Zeichne ein Dreieck
+			console.log("#");
+			console.log("##");
+			console.log("###");
+			console.log("####");
+			console.log("#####");
+
+			//Mit JavaScript kann man Webseiten interaktiv machen. Da das etwas komplizierter ist, musst du noch nicht alles verstehen.
+			const absatz = document.getElementById("meinAbsatz");
+			const button = document.getElementById("meinButton");
+			button.addEventListener("click", () => {
+				absatz.innerHTML = "Der Text hat sich geändert!";
+			});
+		</script>
+		</section>
+
+		<script>
+			// Alle Buttons und Abschnitte auswählen
+			const buttons = document.querySelectorAll(".topic-btn");
+			const sections = document.querySelectorAll(".topic-section");
+
+			// Event-Listener für jeden Button
+			buttons.forEach(button => {
+				button.addEventListener("click", () => {
+					// Verstecke alle Abschnitte
+					sections.forEach(section => section.classList.remove("active"));
+
+					// Zeige den zugehörigen Abschnitt
+					const targetSection = document.getElementById(button.dataset.target);
+					if (targetSection) {
+						targetSection.classList.add("active");
+					}
+				});
+			});
+
+			// JavaScript-Code, um das Bild dem Mauszeiger zu folgen zu lassen
+			document.querySelectorAll('.language').forEach(language => {
+				const logo = language.querySelector('.logo'); // Das Bild in jedem Sprachcontainer
+
+				language.addEventListener('mousemove', (e) => {
+					const rect = language.getBoundingClientRect(); // Position des Elements auf der Seite
+					const mouseX = e.clientX - rect.left; // Mausposition relativ zum Container
+					const mouseY = e.clientY - rect.top;
+
+					// Berechnung des Winkels, den das Logo basierend auf der Mausposition haben soll
+					const angle = Math.atan2(mouseY - rect.height / 2, mouseX - rect.width / 2) * (180 / Math.PI);
+
+					// Setzen des Rotationseffekts auf das Logo
+					logo.style.transform = `rotate(${angle}deg)`;
+				});
+			});
+		</script>
+
+</html>

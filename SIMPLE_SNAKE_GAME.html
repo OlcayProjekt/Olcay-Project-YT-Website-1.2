@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Snake Game</title>
+    <style>
+        /* Login popup */
+        .login-popup {
+            position: fixed;
+            top: 10%;
+            right: 0%;
+            width: 300px;
+            background-color: #3393dc;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-popup.active {
+            display: flex;
+        }
+
+        .login-popup h2 {
+            margin: 15px 0 20px;
+            font-size: 18px;
+            color: #00b7ea;
+            text-align: center;
+        }
+
+        .login-popup input[type="text"],
+        .login-popup input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .login-popup button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #0562ef;
+            color: white;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .login-popup button:hover {
+            background-color: #0562ef;
+        }
+
+        .login-popup .close {
+            position: absolute;
+            top: -15px;
+            /* Verschiebt das X nach oben */
+            left: 50%;
+            transform: translateX(-50%);
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .login-popup .close:hover {
+            color: red;
+        }
+
+        .login-container {
+            position: fixed;
+            top: 10%;
+            right: 0;
+            width: 60px;
+            height: 120px;
+            background-color: #3393dc;
+            border-radius: 15px 0 0 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .login-container:hover {
+            transform: scale(1.05);
+            background-color: #00b7ea;
+        }
+
+        .login-container img {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Animation */
+        .login-container.animate {
+            animation: slideIn 0.6s ease;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Login popup */
+        .login-popup {
+            position: fixed;
+            top: 10%;
+            right: 3%;
+            width: 300px;
+            background-color: #858080;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-popup.active {
+            display: flex;
+        }
+
+        .login-popup input[type="text"],
+        .login-popup input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .login-popup button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #0562ef;
+            color: white;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .login-popup button:hover {
+            background-color: #00b7ea;
+        }
+
+        .login-popup .close:hover {
+            color: red;
+        }
+
+        .login-popup .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #333;
+            /* Optional: Setze eine angenehme Farbe */
+        }
+
+        .login-popup h2 {
+            margin: 40px 0 15px;
+            /* Erhöht den Abstand von der oberen Kante */
+            font-size: 18px;
+            color: #0562ef;
+            text-align: center;
+            /* Zentriert den Titel */
+        }
+
+        .search-container {
+            position: fixed;
+            top: 20px;
+            /* Abstand vom oberen Rand */
+            right: 20px;
+            /* Abstand vom linken Rand */
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Transparentes Weiß */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            z-index: 1000;
+            /* Immer im Vordergrund */
+        }
+
+        input[type="text"] {
+            border: none;
+            outline: none;
+            padding: 10px;
+            border-radius: 5px;
+            margin-right: 5px;
+            width: 200px;
+            /* Breite der Suchleiste */
+        }
+
+        button {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #2c3e50;
+            font-family: Arial, sans-serif;
+            color: white;
+            position: relative;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        canvas {
+            background-color: #34495e;
+            border: 5px solid #ecf0f1;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-info {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .game-info p {
+            margin: 5px 0;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Suche...">
+        <button onclick="search()">🔍</button>
+    </div>
+
+    <!-- Login icon container -->
+    <div class="login-container" id="loginBtn">
+        <img src="Gegenstände/login.png" alt="Logo">
+    </div>
+
+    <!-- Login popup -->
+    <div class="login-popup" id="loginPopup">
+        <h2>Speicher Funktion</h2>
+        <input type="text" placeholder="Username" id="username">
+        <input type="password" placeholder="Password" id="password">
+        <button id="submitLogin">Login</button>
+    </div>
+
+    <script src="JS/suchleiste.js"></script>
+    <script src="JS/login.js"></script>
+
+    <button class="back-button" onclick="goBack()">Zurück</button>
+    <h1>Snake Game</h1>
+    <canvas id="canvas" width="480" height="480"></canvas>
+    <div class="game-info">
+        <p>Steuerung: Pfeiltasten (↑ ↓ ← →)</p>
+        <p>Punktestand: <span id="score">0</span></p>
+    </div>
+
+    <script>
+        let canvas = document.getElementById('canvas');
+        let ctx = canvas.getContext('2d');
+        let rows = 20;
+        let cols = 20;
+        let snake = [{ x: 10, y: 10 }];
+        let food = spawnFood();
+        let cellWidth = canvas.width / cols;
+        let cellHeight = canvas.height / rows;
+        let direction = 'RIGHT';
+        let score = 0;
+        let speed = 225; // Verlangsamte Geschwindigkeit (200ms pro Frame)
+
+        document.addEventListener('keydown', changeDirection);
+        let gameInterval = setInterval(gameLoop, speed);
+
+        function gameLoop() {
+            moveSnake();
+            if (checkCollision()) {
+                clearInterval(gameInterval);
+                alert('Game Over! Dein Punktestand: ' + score);
+                return;
+            }
+
+            if (isFoodEaten()) {
+                score++;
+                document.getElementById('score').innerText = score;
+                food = spawnFood();
+            } else {
+                snake.pop(); // Entferne das letzte Element, wenn die Schlange sich bewegt
+            }
+
+            draw();
+        }
+
+        function draw() {
+            ctx.fillStyle = '#2c3e50'; // Hintergrundfarbe
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Zeichne die Schlange
+            ctx.fillStyle = '#1abc9c';
+            snake.forEach(part => add(part.x, part.y));
+
+            // Zeichne das Essen
+            ctx.fillStyle = '#e74c3c';
+            add(food.x, food.y);
+        }
+
+        function add(x, y) {
+            ctx.fillRect(x * cellWidth, y * cellHeight, cellWidth - 1, cellHeight - 1);
+        }
+
+        function moveSnake() {
+            let head = { ...snake[0] }; // Kopiere den Kopf
+            if (direction === 'LEFT') head.x--;
+            if (direction === 'RIGHT') head.x++;
+            if (direction === 'UP') head.y--;
+            if (direction === 'DOWN') head.y++;
+            snake.unshift(head); // Füge den neuen Kopf der Schlange hinzu
+        }
+
+        function changeDirection(e) {
+            if (e.key === 'ArrowUp' && direction !== 'DOWN') direction = 'UP';
+            if (e.key === 'ArrowDown' && direction !== 'UP') direction = 'DOWN';
+            if (e.key === 'ArrowLeft' && direction !== 'RIGHT') direction = 'LEFT';
+            if (e.key === 'ArrowRight' && direction !== 'LEFT') direction = 'RIGHT';
+        }
+
+        function spawnFood() {
+            return {
+                x: Math.floor(Math.random() * cols),
+                y: Math.floor(Math.random() * rows)
+            };
+        }
+
+        function isFoodEaten() {
+            return snake[0].x === food.x && snake[0].y === food.y;
+        }
+
+        function checkCollision() {
+            // Überprüfe Kollision mit den Wänden
+            if (
+                snake[0].x < 0 ||
+                snake[0].y < 0 ||
+                snake[0].x >= cols ||
+                snake[0].y >= rows
+            ) {
+                return true;
+            }
+
+            // Überprüfe Kollision mit sich selbst
+            for (let i = 1; i < snake.length; i++) {
+                if (snake[0].x === snake[i].x && snake[0].y === snake[i].y) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function goBack() {
+            // Funktion, um zur vorherigen Seite zurückzugehen
+            window.location.href = "Sonstiges.html"; // Hier kannst du den Link zur Zielseite anpassen
+        }
+    </script>
+</body>
+
+</html>

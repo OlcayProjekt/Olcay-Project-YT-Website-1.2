@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <title>Fiktive Charactere Biografien</title>
+    <link rel="stylesheet" href="./CSS Style/biografie.css">
+
+</head>
+
+<body>
+
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Suche...">
+        <button onclick="search()">🔍</button>
+    </div>
+
+    <!-- Login icon container -->
+    <div class="login-container" id="loginBtn">
+        <img src="Gegenstände/login.png" alt="Logo">
+    </div>
+
+    <!-- Login popup -->
+    <div class="login-popup" id="loginPopup">
+        <h2>Speicher Funktion</h2>
+        <input type="text" placeholder="Username" id="username">
+        <input type="password" placeholder="Password" id="password">
+        <button id="submitLogin">Login</button>
+    </div>
+
+    <script src="JS/suchleiste.js"></script>
+    <script src="JS/login.js"></script>
+    <main>
+
+
+        <h1>Fiktive Character Biografie</h1>
+
+        <h4>Navigations Leiste:</h4>
+        <nav>
+            <ul>
+                <li> <a href="index.html">Startseite</a> </li>
+                <li> <a href="Bibilothek.html">Bibilothek</a> </li>
+                <li> <a href="Umfrage.html">Umfrage</a> </li>
+                <li> <a href="Geschichte-Olcay.html">Geschichte</a> </li>
+                <li> <a href="Sonstiges.html">Sonstiges</a> </li>
+                <li> <a href="https://www.youtube.com/@olcayprojekt" target="_blanke">Youtube Kanal Olcay & Projekt </a>
+                </li>
+                <li> <a href="https://www.tiktok.com/@olcayprojekt" target="_blanke">Tiktok Kanal Olcay & Projekt</a>
+                </li>
+                <li> <a href="https://www.instagram.com/olcayundprojekt/" target="_blanke">Instagram Olcay & Projekt</a>
+                </li>
+                <li> <a href="https://www.facebook.com/olcayundprojekt/" targett="_blanke">Facebook Olcay Projekt</a>
+                </li>
+                <li> <a href="https://www.twitch.tv/olcayprojekt" target="_blanke">Twitch Kanal OlcayProjekt</a> </li>
+                <li> <a href="https://twitter.com/olcayprojekt" target="_blanke">Twitter/X Kanal Olcay&Projekt</a></li>
+                <li> <a href="https://discord.com/invite/BVzfEvpKb3" target="_blanke">Discord</a></li>
+            </ul>
+        </nav>
+
+        <hr color="black">
+
+        <p>Letzte Aktualiesierung 3.August 2024 9:50</p>
+
+        <!-- Grid-Container für mehrere Boxen -->
+        <div class="grid-container" id="box-grid">
+            <!-- Boxen werden per JavaScript hinzugefügt -->
+        </div>
+
+        <audio id="background-audio" hidden>
+            <source src="Sound/Website Open Sound.m4a" type="audio/mpeg">
+            Dein Browser unterstützt das Audio-Element nicht.
+        </audio>
+
+        <script>
+            // Funktion zum Hinzufügen von Boxen mit Links
+            function addCategoryCard(imageUrl, title, description, audioFile, linkUrl) {
+                // Grid-Container
+                var gridContainer = document.getElementById('box-grid');
+
+                // Erstelle einen Link (a-Tag)
+                var link = document.createElement('a');
+                link.href = linkUrl; // Setze die URL des Links
+                // Keine Verwendung von target="_blank", damit der Link im gleichen Tab geöffnet wird
+
+                // Erstelle eine neue Box (category-card)
+                var newCard = document.createElement('div');
+                newCard.classList.add('category-card');
+                newCard.style.backgroundImage = 'url(' + imageUrl + ')';
+
+                // Erstelle den Inhalt der Box
+                var content = document.createElement('div');
+                content.classList.add('category-content');
+
+                var titleElement = document.createElement('h2');
+                titleElement.textContent = title;
+
+                var descriptionElement = document.createElement('p');
+                descriptionElement.textContent = description;
+
+                // Füge den Inhalt zur Box hinzu
+                content.appendChild(titleElement);
+                content.appendChild(descriptionElement);
+                newCard.appendChild(content);
+
+                // Füge die Box zum Link hinzu
+                link.appendChild(newCard);
+
+                // Füge die verlinkte Box zum Grid hinzu
+                gridContainer.appendChild(link);
+
+                // Füge Audio-Funktion hinzu, die beim Laden der Seite abspielt
+                newCard.addEventListener('click', function () {
+                    var audio = document.getElementById('background-audio');
+                    audio.src = audioFile; // Setze die neue Audio-Datei
+                    audio.play();
+                });
+            }
+
+            // Beispiel-Aufrufe für das Hinzufügen von Boxen
+            addCategoryCard('Hintergrund/Lalo_Salamanca.jpg', 'Lalo Salamanca', 'Informationen über Lalo Salamanca aus Better Call Saul', 'audio3.mp3', 'Lalo Salamanca.html');
+            addCategoryCard('Hintergrund/William_Afton.webp', 'William Afton', 'William Afton ist der Antagonist der Spiele/Bücher/Filme Five Nights At Freddy', 'audio3.mp3', 'William Afton.html');
+            addCategoryCard('Hintergrund/red-ghost-call-of-duty-modern-warfare-ii-thumb.jpg', 'Simon Ghost Riley', 'Hier findest du einen SAS Soldaten namens Ghost der bei der Task Force 141 seinen dienst leistet und von General Sheperd getötet wurde', 'audio3.mp3', 'Ghost.html');
+            addCategoryCard('Hintergrund/dexter_new.jpg', 'Dexter Morgan', 'Dexter arbeitet in der Forensic und ist ein Serien Killer', 'audio3.mp3', 'Dexter Morgan.html');
+        </script>
+
+</body>

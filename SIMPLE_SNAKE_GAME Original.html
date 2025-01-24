@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPLE_SNAKE_GAME</title>
+</head>
+
+<body>
+
+    <canvas id="canvas" width="480" height="480"></canvas>
+
+    <script>
+        let canvas = document.getElementById('canvas');
+        let ctx = canvas.getContext('2d')
+        let rows = 10;
+        let cols = 10;
+        let snake = [{
+            x: 2, 
+            y: 3
+        }, {
+            x: 3, 
+            y: 3
+        }, {
+            x: 4, 
+            y: 3
+        }];
+        let food = { 
+            x: 5,
+            y: 5
+        };
+        let cellWidht = canvas.width / cols;
+        let cellHeight = canvas.height / rows;
+        let direction = 'LEFT';
+
+        setInterval(gameLoop, 100);
+
+        draw();
+
+        function draw() {
+            ctx.fillStyle = 'black';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'white';
+
+            snake.forEach(part => add(part.x, part.y));
+
+            ctx.fillstyle = 'yellow';
+            add(food.x, food.y); // Food
+
+            requestAnimationFrame()
+        }
+
+        function add(x, y) {
+            ctx.fillRect(x * cellWidht, y * cellHeight, cellWidht - 1, cellHeight - 1);
+        }
+
+        function gameLoop() {
+            snake[0].x--;
+        }
+    </script>
+
+</body>
+
+</html>

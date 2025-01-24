@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+	<title>Bibilothek</title>
+	<link rel="icon" type="image/jpg" href="Gegenstände/bibilothek-icon.png">
+	<link rel="stylesheet" href="./CSS Style/bibilothek_style.css">
+
+</head>
+
+<body>
+
+	<div class="search-container">
+		<input type="text" id="search" placeholder="Suche...">
+		<button onclick="search()">🔍</button>
+	</div>
+
+	<!-- Login icon container -->
+	<div class="login-container" id="loginBtn">
+		<img src="Gegenstände/login.png" alt="Logo">
+	</div>
+
+	<!-- Login popup -->
+	<div class="login-popup" id="loginPopup">
+		<h2>Speicher Funktion</h2>
+		<input type="text" placeholder="Username" id="username">
+		<input type="password" placeholder="Password" id="password">
+		<button id="submitLogin">Login</button>
+	</div>
+
+	<script src="JS/suchleiste.js"></script>
+	<script src="JS/login.js"></script>
+	<main>
+
+
+		<h1 id="Bibilothek">Bibilothek</h1>
+
+		<h4>Navigations Leiste:</h4>
+		<nav>
+			<ul>
+				<li> <a href="index.html">Startseite</a> </li>
+				<li> <a href="Bibilothek.html">Bibilothek</a> </li>
+				<li> <a href="Umfrage.html">Umfrage</a> </li>
+				<li> <a href="Geschichte-Olcay.html">Geschichte</a> </li>
+				<li> <a href="Sonstiges.html">Sonstiges</a> </li>
+				<li> <a href="https://www.youtube.com/@olcayprojekt" target="_blanke">Youtube Kanal Olcay & Projekt </a>
+				</li>
+				<li> <a href="https://www.tiktok.com/@olcayprojekt" target="_blanke">Tiktok Kanal Olcay & Projekt</a>
+				</li>
+				<li> <a href="https://www.instagram.com/olcayundprojekt/" target="_blanke">Instagram Olcay & Projekt</a>
+				</li>
+				<li> <a href="https://www.facebook.com/olcayundprojekt/" targett="_blanke">Facebook Olcay Projekt</a>
+				</li>
+				<li> <a href="https://www.twitch.tv/olcayprojekt" target="_blanke">Twitch Kanal OlcayProjekt</a> </li>
+				<li> <a href="https://twitter.com/olcayprojekt" target="_blanke">Twitter/X Kanal Olcay&Projekt</a></li>
+				<li> <a href="https://discord.com/invite/BVzfEvpKb3" target="_blanke">Discord</a></li>
+			</ul>
+		</nav>
+
+		<p>Letzte Aktualiesierung 14.August 2023 9:50</p>
+
+		<h2>Profilbilder Entwicklung</h2>
+
+		<div class="profile-container">
+			<!-- Profil 1 -->
+			<div class="profile">
+				<img src="Gegenstände/New Logo.jpg" alt="Profil 1">
+				<div class="text">Seit dem 11.11.2023</div>
+			</div>
+			<!-- Profil 2 -->
+			<div class="profile">
+				<img src="Gegenstände/2 Logo.jpg" alt="Profil 2">
+				<div class="text">Seit dem 22/04/2023</div>
+			</div>
+			<!-- Profil 3 -->
+			<div class="profile">
+				<img src="Gegenstände/3 Logo.jpg" alt="Profil 3">
+				<div class="text">Seit dem 04/11/2022</div>
+			</div>
+			<!-- Profil 4 -->
+			<div class="profile">
+				<img src="Gegenstände/Logo BMFC.jpg" alt="Profil 4">
+				<div class="text">Seit dem 04/11/2022</div>
+			</div>
+		</div>
+		<hr color="blue">
+
+
+
+		<!-- Erster Video-Container für den ersten Kanal -->
+		<div class="video-section">
+			<h2>Kanal 1: Olcay & Projekt</h2>
+			<div class="video-slider-container">
+
+				<!-- Videos im Slider für Kanal 1 -->
+				<div id="slider1" class="video-slider">
+					<div class="video-item">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/MaI6TeJpZPg?si=KOiBv71fliRbaCNa"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="video-item">
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/jtwhCTTPPrs?si=oxEuBRs0o8xEk1qL" loading="lazy"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="video-item">
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/g0O1IVNZs0Q?si=GnjOVOudRBfdLlYQ" loading="lazy"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="video-item">
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/8T2zogKcFI8?si=EFjD_CyJJZgHwlOj" loading="lazy"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="video-item">
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/EiHYHW4nsME?si=l_AeYJu0ayRskZ2g" loading="lazy"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="video-item">
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/5GAUTqw_IGA?si=cY1AqQwoEUMVbJZf" loading="lazy"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="video-item">
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/X_VmKIgNGGk?si=HCCVg4Aa4X60uV3l" loading="lazy"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="video-item">
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/8xMb38NTKpk?si=l4EI76NlMK668yQQ" loading="lazy"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="video-item">
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/VpBdKq79AGo?si=4XoojhgeR0_auZYp" loading="lazy"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="video-item">
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/OfZGwkfveM8?si=yxjWE9DsBfGkc0f4" loading="lazy"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="video-item">
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/P96zLBX8ay4?si=AMOom64HaMRjgOXw" loading="lazy"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="video-item">
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/_imCCCik7bY?si=E3IwdWaKacjMJNC1" loading="lazy"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="video-item">
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/HNRQdHs-l8Q?si=8uBTC0UEd8mbBNij" loading="lazy"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="video-item">
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/1-yk6swOJUo?si=QKhhntPp7pzROOHn" loading="lazy"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="video-item">
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/BevB2sB2Oj8?si=W1rYejrlrWNVAtGd" loading="lazy"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="video-item">
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/88q_TifobVY?si=hE3dtIRH04W1l4pS" loading="lazy"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="video-item">
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/f6bwikMpnL0?si=mJddwHzv-Mpi0zb2" loading="lazy"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+				</div>
+			</div>
+
+			<h2>Alle Youtube Videos von Olcay BMFL</h2>
+
+			<hr color="brown">
+
+			<div class="grid">
+
+				<div class="video-item bmfl-video" id="bmfl-video-1"><iframe width="560" height="315"
+						src="https://www.youtube.com/embed/A0QItZACicg?si=bfbH6UJjsdy3nTcO" loading="lazy"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				</div>
+				<div class="video-item bmfl-video" id="bmfl-video-2"><iframe width="560" height="315"
+						src="https://www.youtube.com/embed/dedCTWr_kto?si=DzL0Mj8llvqb3E5k" loading="lazy"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						allowfullscreen></iframe>
+				</div>
+				<div class="video-item bmfl-video" id="bmfl-video-3"><iframe width="560" height="315"
+						src="https://www.youtube.com/embed/FqObDqhnzh4?si=XRLpOikzMrhsjgWb" loading="lazy"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				</div>
+				<div class="video-item bmfl-video" id="bmfl-video-4"><iframe width="560" height="315"
+						src="https://www.youtube.com/embed/psrekrbsP3k?si=gWNkRyLBjHUCIb9j" loading="lazy"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						allowfullscreen></iframe></div>
+				<div class="video-item bmfl-video" id="bmfl-video-5"><iframe width="560" height="315"
+						src="https://www.youtube.com/embed/vTmbl69aBtE?si=lCnNO2Zbi7a9rOhK" loading="lazy"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						allowfullscreen></iframe></div>
+				<div class="video-item bmfl-video" id="bmfl-video-6"><iframe width="560" height="315"
+						src="https://www.youtube.com/embed/bIDjK8C_oXM?si=Ub5Vh1UWv7cDvOs1" loading="lazy"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+				<div class="video-item bmfl-video" id="bmfl-video-7"><iframe width="560" height="315"
+						src="https://www.youtube.com/embed/iPrLPrwXZFo?si=3gOpBYUu4TPlYj0V" title="YouTube video player"
+						frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+				<div class="video-item bmfl-video" id="bmfl-video-8"><iframe width="560" height="315"
+						src="https://www.youtube.com/embed/IEhoM2yD-E8?si=tg5RS4U_5eTjAsxv" title="YouTube video player"
+						frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+			</div>
+			<button id="loadMoreBtn">Mehr Videos anzeigen</button>
+
+
+			<h2>Alle YouTube Shorts</h2>
+			<hr color="Red">
+
+			<div class="grid">
+
+				<iframe width="650" height="1155" src="https://www.youtube.com/embed/s2571CJo470"
+					title="The Bay Harbour Butcher Edit | H3Y.MP3 [4K] #shorts" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+				<iframe width="650" height="1155" src="https://www.youtube.com/embed/1pMGB60o_0c"
+					title="Johan Liebert Edit | DONT STOP SLOWED [4K] #shorts" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+				<iframe width="650" height="1155" src="https://www.youtube.com/embed/eWWgptDeHPA"
+					title="Michaels Mistake | GTA5 Edit | PROTECTION CHARM SLOWED [4K] #shorts" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+				<iframe width="650" height="1155" src="https://www.youtube.com/embed/0uRexUeVFSY"
+					title="&quot;The One Ring&quot; - Lord of the Rings Edit | GOTH SLOWED [4K] #shorts" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+				<iframe width="650" height="1155" src="https://www.youtube.com/embed/qN30pqkAln8"
+					title="Sergeant Rick Grimes | The Walking Dead Edit | APOGEE SLOWED [4K] #shorts" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+				<iframe width="650" height="1155" src="https://www.youtube.com/embed/qvKor4aa1Og"
+					title="Walter White&#39;s Downfall | Breaking Bad | MY EYES SLOWED [4K] #shorts" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen></iframe>
+
+				<iframe width="650" height="1155" src="https://www.youtube.com/embed/6idKzJLYmAg"
+					title="Betrayal | Red Dead Redemption Edit | The Other Side - LongLost [4K] #shorts" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen></iframe>
+
+				<iframe width="650" height="1155" src="https://www.youtube.com/embed/srxR4MjYm3E"
+					title="Joe Goldberg Edit | KILLER (SLOWED) (You) #shorts" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen></iframe>
+
+				<iframe width="650" height="1155" src="https://www.youtube.com/embed/5Bd-PnZJrlE"
+					title="William Afton Edit #shorts" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen></iframe>
+
+				<iframe width="650" height="1155" src="https://www.youtube.com/embed/9uKv5_dZC_4"
+					title="I WANT YOU TO HIT ME #shorts" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen></iframe>
+
+				<iframe width="650" height="1155" src="https://www.youtube.com/embed/JQw3YsdNw0o"
+					title="Wir machen uns schmutzig und die Welt bleibt sauber, das ist die Mission – Cpt.Price #shorts"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen></iframe>
+
+				<iframe width="650" height="1155" src="https://www.youtube.com/embed/fdoziouM-MI"
+					title="Homelander Edit 4K/120 (TheBoys) #shorts" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen></iframe>
+
+				<iframe width="650" height="1155" src="https://www.youtube.com/embed/byOPtJzHD8U"
+					title="TWD Season two parallel #shorts" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen></iframe>
+
+
+				<iframe width="650" height="1155" src="https://www.youtube.com/embed/IjjwzvAPyEY"
+					title="Thomas Shelby Edit #shorts" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen></iframe>
+
+				<iframe width="650" height="1155" src="https://www.youtube.com/embed/Gr7W8tc92ik"
+					title="Lalo Salamanca Edit #shorts" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen></iframe>
+
+				<iframe width="650" height="1155" src="https://www.youtube.com/embed/NGVMfarpTyg"
+					title="John Wick Edit #shorts" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen></iframe>
+			</div>
+
+			<h2>Alle Tiktok Videos von Olcay & Projekt</h2>
+
+			<hr color="Red">
+
+			<script async src="https://www.tiktok.com/embed.js"></script>
+
+			<h3>Alle Sozialen Netzwerke</h3>
+			<li> <a href="https://www.youtube.com/@olcayprojekt" target="_blanke">Youtube Kanal Olcay & Projekt </a>
+			</li>
+			<li> <a href="https://www.youtube.com/@olcaybmfl9542" target="_blanke">Youtube Kanal Olcay BMFL </a> </li>
+			<li> <a href="https://www.tiktok.com/@olcayprojekt" target="_blanke">Tiktok Kanal Olcay & Project</a> </li>
+			<li> <a href="https://www.tiktok.com/@olcaybmfl" target="_blanke">Tiktok Kanal Olcaybmfl</a> </li>
+			<li> <a href="https://www.instagram.com/olcayundprojekt/" target="_blanke">Instagram Olcay & Projekt</a>
+			</li>
+			<li> <a href="https://www.instagram.com/olcay_bmfc/" target="_blanke">Instagram Olcay_bmfc</a> </li>
+			<li> <a href="https://www.facebook.com/olcayundprojekt/" targett="_blanke">Facebook Olcay Projekt</a> </li>
+			<li> <a href="https://www.twitch.tv/olcayprojekt" target="_blanke">Twitch Kanal OlcayProjekt</a> </li>
+			<li> <a href="https://twitter.com/olcayprojekt" target="_blanke">Twitter/X Kanal Olcay&Projekt</a></li>
+			<li> <a href="https://twitter.com/Olcay95052013" target="_blanke">Twitter/X Kanal Olcay BMFL</a></li>
+			<li> <a href="https://discord.com/invite/BVzfEvpKb3" target="_blanke">Discord</a></li>
+
+	</main>
+</body>
+
+</html>

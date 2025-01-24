@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <title>Canvas</title>
+  <link rel="stylesheet" href="./CSS Style/canvas_style.css">
+
+  <script src="JS/taralino.js"></script>
+</head>
+
+<body>
+
+  <div class="search-container">
+    <input type="text" id="search" placeholder="Suche...">
+    <button onclick="search()">🔍</button>
+  </div>
+
+  <!-- Login icon container -->
+  <div class="login-container" id="loginBtn">
+    <img src="Gegenstände/login.png" alt="Logo">
+  </div>
+
+  <!-- Login popup -->
+  <div class="login-popup" id="loginPopup">
+    <h2>Speicher Funktion</h2>
+    <input type="text" placeholder="Username" id="username">
+    <input type="password" placeholder="Password" id="password">
+    <button id="submitLogin">Login</button>
+  </div>
+
+  <script src="JS/suchleiste.js"></script>
+  <script src="JS/login.js"></script>
+  <main>
+    <h1>Canvas</h1>
+
+    <h4>Navigations Leiste:</h4>
+    <nav>
+      <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="Bibilothek.html">Bibilothek</a></li>
+        <li><a href="Umfrage.html">Umfrage</a></li>
+        <li><a href="Geschichte-Olcay.html">Geschichte</a></li>
+        <li><a href="Sonstiges.html">Sonstiges</a></li>
+        <li><a href="https://www.youtube.com/@olcayprojekt" target="_blanke">Youtube Kanal Olcay & Projekt</a></li>
+        <li><a href="https://www.tiktok.com/@olcayprojekt" target="_blanke">Tiktok Kanal Olcay & Projekt</a></li>
+        <li><a href="https://www.instagram.com/olcayundprojekt/" target="_blanke">Instagram Olcay & Projekt</a></li>
+        <li><a href="https://www.facebook.com/olcayundprojekt/" targett="_blanke">Facebook Olcay Projekt</a></li>
+        <li><a href="https://www.twitch.tv/olcayprojekt" target="_blanke">Twitch Kanal OlcayProjekt</a></li>
+        <li><a href="https://twitter.com/olcayprojekt" target="_blanke">Twitter/X Kanal Olcay&Projekt</a></li>
+        <li><a href="https://discord.com/invite/BVzfEvpKb3" target="_blanke">Discord</a></li>
+      </ul>
+    </nav>
+
+    <header>
+      <h1>Canvas Museum</h1>
+      <p>Entdecke kreative Kunstwerke und Animationen</p>
+    </header>
+
+    <h3>Pacman</h3>
+
+    <script>
+      //Fläche
+      Canvas.init([0, 50], [0, 18], { width: 1000, background: "blue" });
+
+      //Pacman
+      Canvas.circle(4, 6, 4, { fill: "yellow" });
+      Canvas.circle(4, 6, 4, { fill: "yellow", stroke: "gray" });
+
+      //Auge
+      Canvas.circle(5, 10, 1, { fill: "white", stroke: "red" });
+      Canvas.circle(5, 10, 1, { fill: "white" });
+
+      //Bälle
+      Canvas.circle(12, 6, 1, { fill: "red" });
+      Canvas.circle(16, 6, 1, { fill: "orange" });
+      Canvas.circle(20, 6, 1, { fill: "yellow" });
+      Canvas.circle(24, 6, 1, { fill: "black" });
+
+      //Mund
+      Canvas.box(7, 6, 4, { fill: "blue", angle: Math.PI / 4 });
+
+      //Haus
+      Canvas.box(40, 8, 4, { fill: "brown" });
+      Canvas.box(40, 8, 4, { fill: "brown", stroke: "black" });
+
+      Canvas.polygon(
+        [
+          [37, 10],
+          [40, 13],
+          [43, 10],
+        ],
+        { fill: "brown", stroke: "brown" }
+      );
+      Canvas.polygon(
+        [
+          [37, 10],
+          [40, 13],
+          [43, 10],
+        ],
+        { fill: "none", stroke: "black" }
+      );
+
+      //Blume
+      Canvas.rect(50, 5, 2, 8, { fill: "green" });
+      Canvas.circle(50, 9, 2, { fill: "yellow", stroke: "red" });
+      Canvas.circle(50, 9, 1, { fill: "white", stroke: "orange" });
+
+      //Fläche 2
+      Canvas.init([0, 6], [0, 4], { width: 480, background: "brown" });
+
+      //Die for-Schleife
+      for (var x = 0.6; x < 5.6; x = x + 0.4) {
+        Canvas.circle(x, 2.0, 0.15, { fill: "blue" });
+      }
+
+      for (var x = 0.6; x < 5.6; x = x + 0.4) {
+        Canvas.circle(x, 2.0, 0.05, { fill: "red" });
+      }
+
+      //Fläche 3
+      Canvas.init([0, 20], [0, 12], { width: 480, background: "red" });
+
+      for (var y = 0; y < 4; y = y + 1) {
+        for (var x = 0; x < 3; x = x + 1)
+          Canvas.circle(x + 1, y + 1, 0.4, { fill: "green" });
+      }
+
+      //Fläche 4
+      Canvas.init([0, 20], [0, 12], { width: 480, background: "blue" });
+
+      for (var x = 0; x < 40; x = x + 3) {
+        Canvas.circle(random(1, 25), random(1, 11), 0.4, { fill: "red" });
+      }
+
+      //Fläche 5 die While Schleife zur einer for-Schleife umwandeln
+      Canvas.init([0, 20], [0, 12], { width: 480, background: "red" });
+
+      for (var x = 0; x < 20; x = x + 1) {
+        Canvas.circle(x + 1, 6.0, 0.4, { fill: "black" });
+      }
+
+      //Fläche 6
+      Canvas.init([0, 20], [0, 12], { width: 480, background: "blue" });
+
+      for (var x = 0; x < 20; x = x + 1)
+        Canvas.circle(random(1, 19), random(1, 11), 0.3, { fill: "purple" });
+      Canvas.circle(random(1, 19), random(1, 11), 0.3, { fill: "olive" });
+      Canvas.circle(random(1, 19), random(1, 11), 0.3, { fill: "cyan" });
+      Canvas.circle(random(1, 19), random(1, 11), 0.3, { fill: "yellow" });
+      Canvas.circle(random(1, 19), random(1, 11), 0.3, { fill: "lime" });
+      Canvas.circle(random(1, 19), random(1, 11), 0.2, { fill: "red" });
+      Canvas.circle(random(1, 19), random(1, 11), 0.2, { fill: "black" });
+      Canvas.box(random(1, 19), random(1, 11), random(0.3, 1.5), {
+        fill: "violet",
+      });
+
+      //Fläche 7
+      Canvas.init([0, 20], [0, 12], { width: 480, background: "blue" });
+
+      for (var y = 0; y < 12; y = y + 1) {
+        for (var x = 0; x < 20; x = x + 1) {
+          Canvas.circle(x + 0.5, y + 0.5, 0.4, { fill: "green" });
+          Canvas.circle(random(1, 19), random(1, 11), 0.3, { fill: "olive" });
+        }
+      }
+
+      //Fläche 8
+      Canvas.init([0, 20], [0, 12], { width: 480, background: "blue" });
+
+      for (var y = 0; y < 12; y = y + 1) {
+        Canvas.circle(random(1, 19), random(1, 11), 0.3, { fill: "olive" });
+      }
+    </script>
+  </main>
+</body>
+
+</html>

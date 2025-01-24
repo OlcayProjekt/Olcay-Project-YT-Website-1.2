@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <title>Cookie-clicker</title>
+    <link rel="icon" type="image/jpg" href="Kekse Skins/Keks.png">
+    <link rel="stylesheet" href="./CSS Style/cookie-clicker_syle.css">
+
+</head>
+
+<body>
+
+    <main>
+
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Suche...">
+            <div class="search-icon" onclick="search()">
+                🔍
+            </div>
+        </div>
+        
+        <!-- Login icon container -->
+        <div class="login-container" id="loginBtn">
+            <img src="Gegenstände/login.png" alt="Logo">
+        </div>
+        
+        <!-- Login popup -->
+        <div class="login-popup" id="loginPopup">
+            <h2>Speicher Funktion</h2>
+            <input type="text" placeholder="Username" id="username">
+            <input type="password" placeholder="Password" id="password">
+            <button id="submitLogin">Login</button>
+        </div>
+
+        <script src="JS/suchleiste.js"></script>
+        <script src="JS/login.js"></script>
+        <h1>Cookie-clicker</h1>
+
+        <h4>Navigations Leiste:</h4>
+        <nav>
+            <ul>
+                <li> <a href="index.html">Startseite</a> </li>
+                <li> <a href="Bibilothek.html">Bibilothek</a> </li>
+                <li> <a href="Umfrage.html">Umfrage</a> </li>
+                <li> <a href="Geschichte-Olcay.html">Geschichte</a> </li>
+                <li> <a href="Sonstiges.html">Sonstiges</a> </li>
+                <li> <a href="https://www.youtube.com/@olcayprojekt" target="_blanke">Youtube Kanal Olcay & Projekt </a>
+                </li>
+                <li> <a href="https://www.tiktok.com/@olcayprojekt" target="_blanke">Tiktok Kanal Olcay & Projekt</a>
+                </li>
+                <li> <a href="https://www.instagram.com/olcayundprojekt/" target="_blanke">Instagram Olcay & Projekt</a>
+                </li>
+                <li> <a href="https://www.facebook.com/olcayundprojekt/" targett="_blanke">Facebook Olcay Projekt</a>
+                </li>
+                <li> <a href="https://www.twitch.tv/olcayprojekt" target="_blanke">Twitch Kanal OlcayProjekt</a> </li>
+                <li> <a href="https://twitter.com/olcayprojekt" target="_blanke">Twitter/X Kanal Olcay&Projekt</a></li>
+                <li> <a href="https://discord.com/invite/BVzfEvpKb3" target="_blanke">Discord</a></li>
+            </ul>
+        </nav>
+
+        <div class="image-container">
+
+            <img src="Kekse Skins/Keks.png" alt="Drehendes Bild">
+
+        </div>
+
+
+        <main>
+            <!--Eine id gibt einem HTML-Element einen Namen für die JavaScript-Welt. -->
+
+            <p>Kontostand: <span id="kontoanzeige">0</span></p>
+            <button class="bounce" id="cookieButton">Cookie!</button>
+            <button id="upgradeButton">Upgrade</button>
+            <button id="buyBakerButton">Bäcker kaufen (300 Cookies)</button>
+            <button id="cookieSkin">Skin</button>
+            <p id="bakerInfo">Bäcker: 0/2</p>
+            <div id="bakerContainer"></div>
+            <button id="bonusButton">Bonus (Cheat)</button>
+            <button onclick="changeBackground('image')">Weißer Abstrakter Hintergrund</button>
+            <button onclick="changeBackground('image 1')">Blauer Abstrakter Hintergrund</button>
+            <button onclick="changeBackground('image 2')">Küche Hintergrund</button>
+            <button id="showAchievementsButton">Achievements anzeigen</button>
+
+            <!-- Container für das Achievement-Menü -->
+            <div id="achievementMenu" style="display: none;">
+                <h2>Achievements</h2>
+                <ul id="achievementsDisplay"></ul>
+                <button id="closeAchievementsButton">Schließen</button>
+            </div>
+
+        </main>
+
+        <script>
+            // ------------------------------
+            // Globale Variablen
+            // ------------------------------
+            let cookies = 0; // Anzahl der Cookies
+            let clickpower = 1; // Klick-Stärke
+            let bonuspower = 250; // Bonus-Kekse pro Klick
+            let bakers = 0; // Anzahl der Bäcker
+            const maxBakers = 2; // Maximale Anzahl der Bäcker
+            const cookiesPerSecond = 10; // Kekse pro Sekunde pro Bäcker
+
+            // Skins-Array
+            const skins = [
+                { src: "Kekse Skins/Keks.png", cost: 0 },
+                { src: "Kekse Skins/Chip Skin.png", cost: 50 },
+                { src: "Kekse Skins/Donut Skin.png", cost: 150 },
+                { src: "Kekse Skins/Toiletenpapier Skin.png", cost: 200 },
+                { src: "Kekse Skins/Pizza.png", cost: 250 },
+                { src: "Kekse Skins/Weinachtsmann Skin.png", cost: 300 },
+                { src: "Kekse Skins/minecraft.png", cost: 350 },
+                { src: "Kekse Skins/Oreo Skin.png", cost: 400 },
+                { src: "Kekse Skins/cd.png", cost: 450 },
+                { src: "Kekse Skins/toast.png", cost: 500 },
+                { src: "Kekse Skins/spiegelei.png", cost: 600 },
+                { src: "Kekse Skins/Offizier Skin.png", cost: 700 },
+                { src: "Kekse Skins/kaffe.png", cost: 800 },
+                { src: "Kekse Skins/Zucker.png", cost: 900 },
+                { src: "Kekse Skins/Slurf.png", cost: 1000 },
+                { src: "Kekse Skins/Bralienen.png", cost: 1250 },
+                { src: "Kekse Skins/galexie.png", cost: 1500 },
+                { src: "Kekse Skins/golden.png", cost: 2000 },
+            ];
+
+            // Gekaufte Skins-Status
+            const ownedSkins = Array(skins.length).fill(false);
+            ownedSkins[0] = true; // Standard-Skin gehört dem Spieler
+
+            // Quizfragen
+            let questions = [
+                {
+                    question: "Wie viele Kekse isst der Durchschnittsmensch im Jahr?",
+                    answers: {
+                        a: "500",
+                        b: "700",
+                        c: "900"
+                    },
+                    correct: "b" // Richtig: 700
+                },
+                {
+                    question: "Wie nennt man einen Cookie ohne Zucker?",
+                    answers: {
+                        a: "Keksfrei",
+                        b: "Langweilig",
+                        c: "Gesund"
+                    },
+                    correct: "c" // Richtig: Gesund
+                },
+                {
+                    question: "Was ist der meistverkaufte Cookie der Welt?",
+                    answers: {
+                        a: "Oreo",
+                        b: "Chip Ahoy",
+                        c: "Butterkeks"
+                    },
+                    correct: "a" // Richtig: Oreo
+                },
+                {
+                    question: "Welche Zutat ist in Keksen oft für den Geschmack zuständig?",
+                    answers: {
+                        a: "Schokolade",
+                        b: "Vanille",
+                        c: "Mehl"
+                    },
+                    correct: "a" // Richtig: Schokolade
+                },
+                {
+                    question: "Wie viele Kalorien hat ein durchschnittlicher Cookie?",
+                    answers: {
+                        a: "100",
+                        b: "150",
+                        c: "200"
+                    },
+                    correct: "b" // Richtig: 150
+                },
+                {
+                    question: "In welchem Jahr wurde der erste Cookie gebacken?",
+                    answers: {
+                        a: "1800",
+                        b: "1900",
+                        c: "1930"
+                    },
+                    correct: "c" // Richtig: 1930
+                },
+                {
+                    question: "Wie nennt man Kekse in Großbritannien?",
+                    answers: {
+                        a: "Biscuits",
+                        b: "Cookies",
+                        c: "Crisps"
+                    },
+                    correct: "a" // Richtig: Biscuits
+                },
+                {
+                    question: "Warum lieben Programmierer Cookies?",
+                    answers: {
+                        a: "Weil sie süß sind",
+                        b: "Weil sie in jeder Programmiersprache vorkommen",
+                        c: "Weil sie schnell Energie geben"
+                    },
+                    correct: "b" // Richtig: Weil sie in jeder Programmiersprache vorkommen (Witz)
+                }
+            ];
+
+            // ------------------------------
+            // Achievement
+            // ------------------------------
+
+            const showAchievementsButton = document.getElementById("showAchievementsButton");
+            const achievementMenu = document.getElementById("achievementMenu");
+            const closeAchievementsButton = document.getElementById("closeAchievementsButton");
+
+            // Button-Funktionalität
+            showAchievementsButton.addEventListener("click", () => {
+                updateAchievementList();
+                achievementMenu.style.display = "block";
+            });
+
+            closeAchievementsButton.addEventListener("click", () => {
+                achievementMenu.style.display = "none";
+            });
+
+            // Achievement-Liste aktualisieren
+            function updateAchievementList() {
+                const achievementsDisplay = document.getElementById("achievementsDisplay");
+                achievementsDisplay.innerHTML = "";
+
+                achievements.forEach(achievement => {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = achievement.title +
+                        (achievement.unlocked ? " ✅" : " ❌");
+                    listItem.style.color = achievement.unlocked ? "green" : "gray";
+                    achievementsDisplay.appendChild(listItem);
+                });
+            }
+
+            function checkAchievements() {
+                achievements.forEach(achievement => {
+                    if (!achievement.unlocked && achievement.condition()) {
+                        achievement.unlocked = true; // Achievement freischalten
+                        showAchievement(achievement); // Zeige das Achievement an
+                    }
+                });
+            }
+
+            function showAchievement(achievement) {
+                // Popup-Element erstellen
+                const achievementPopup = document.createElement("div");
+                achievementPopup.className = "achievement-popup";
+                achievementPopup.innerHTML = `
+        <h3>Achievement freigeschaltet!</h3>
+        <p><strong>${achievement.title}</strong></p>
+        <p>${achievement.description}</p>
+    `;
+
+                // Popup zum Dokument hinzufügen
+                document.body.appendChild(achievementPopup);
+
+                // Nach 3 Sekunden automatisch entfernen
+                setTimeout(() => {
+                    achievementPopup.remove();
+                }, 3000);
+            }
+
+            function updateAchievementList() {
+                const achievementsDisplay = document.getElementById("achievementsDisplay");
+                achievementsDisplay.innerHTML = ""; // Liste leeren
+
+                achievements.forEach(achievement => {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = achievement.title;
+                    listItem.style.color = achievement.unlocked ? "green" : "gray";
+                    achievementsDisplay.appendChild(listItem);
+                });
+            }
+
+            const achievements = [
+                {
+                    id: "firstClick",
+                    title: "Erster Klick",
+                    description: "Klicke das Cookie zum ersten Mal!",
+                    unlocked: false,
+                    condition: () => cookies >= 1 // Bedingung: Mindestens 1 Cookie
+                },
+                {
+                    id: "firstUpgrade",
+                    title: "Erstes Upgrade",
+                    description: "Kaufe dein erstes Upgrade!",
+                    unlocked: false,
+                    condition: () => clickpower > 1 // Bedingung: Upgrade wurde gekauft
+                },
+                {
+                    id: "firstUpgrade",
+                    title: "Multiman",
+                    description: "Kaufe dein 15tes Upgrade",
+                    unlocked: false,
+                    condition: () => clickpower > 15 // Bedingung: Upgrade wurde gekauft
+                },
+                {
+                    id: "firstSkin",
+                    title: "Erster Skin",
+                    description: "Kaufe deinen ersten Skin!",
+                    unlocked: false,
+                    condition: () => ownedSkins.some(skin => skin) // Bedingung: Ein Skin wurde gekauft
+                },
+                {
+                    id: "Background",
+                    title: "Weltreise",
+                    description: "Ändere denn Hintergrund so oft wie du kannst!",
+                    unlocked: false,
+                    //condition steht beim Hintergrund Code unten
+                },
+                {
+                    id: "hundredCookies",
+                    title: "Cookie-Liebhaber",
+                    description: "Sammle 100 Cookies!",
+                    unlocked: false,
+                    condition: () => cookies >= 100 // Bedingung: Mindestens 100 Cookies
+                },
+                {
+                    id: "hundredCookies",
+                    title: "Studs ... nah Abwechslung",
+                    description: "Sammle 1000 Cookies!",
+                    unlocked: false,
+                    condition: () => cookies >= 1000 // Bedingung: Mindestens 100 Cookies
+                },
+                {
+                    id: "firstBaker",
+                    title: "Backprofi",
+                    description: "Kaufe deinen ersten Bäcker!",
+                    unlocked: false,
+                    condition: () => bakers >= 1 // Bedingung: Mindestens 1 Bäcker
+                },
+                {
+                    id: "maxBakers",
+                    title: "Backmeister",
+                    description: "Erreiche die maximale Anzahl von Bäckern!",
+                    unlocked: false,
+                    condition: () => bakers === maxBakers // Bedingung: Max. Anzahl Bäcker
+                },
+                {
+                    id: "allSkins",
+                    title: "Alle Skins!",
+                    description: "Besitze alle Skins im Spiel + Hintergründe!",
+                    unlocked: false,
+                    condition: () => ownedSkins.every(skin => skin) // Überprüft, ob alle Skins gekauft wurden
+                }
+            ];
+
+            // Funktion zur Überprüfung der Achievements
+            function checkAchievements() {
+                achievements.forEach(achievement => {
+                    if (!achievement.unlocked && achievement.condition()) {
+                        achievement.unlocked = true; // Achievement freischalten
+                        showAchievement(achievement); // Zeige das Achievement an
+                    }
+                });
+            }
+
+            // Funktion zur Anzeige eines freigeschalteten Achievements
+            function showAchievement(achievement) {
+                // Popup-Element erstellen
+                const achievementPopup = document.createElement("div");
+                achievementPopup.className = "achievement-popup";
+                achievementPopup.innerHTML = `
+        <h3>Achievement freigeschaltet!</h3>
+        <p><strong>${achievement.title}</strong></p>
+        <p>${achievement.description}</p>
+    `;
+
+                // Popup zum Dokument hinzufügen
+                document.body.appendChild(achievementPopup);
+
+                // Nach 3 Sekunden automatisch entfernen
+                setTimeout(() => {
+                    achievementPopup.remove();
+                }, 3000);
+            }
+
+            // Funktion zur Aktualisierung der Achievement-Liste
+            function updateAchievementList() {
+                const achievementsDisplay = document.getElementById("achievementsDisplay");
+                achievementsDisplay.innerHTML = ""; // Liste leeren
+
+                achievements.forEach(achievement => {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = achievement.title;
+                    listItem.style.color = achievement.unlocked ? "green" : "gray";
+                    achievementsDisplay.appendChild(listItem);
+                });
+            }
+
+            // Skin-Menü und Skin-Kauf
+            function buyOrSelectSkin(index) {
+                const skin = skins[index];
+                if (ownedSkins[index]) {
+                    cookieImage.src = skin.src;
+                    alert("Skin erfolgreich ausgewählt!");
+                } else if (cookies >= skin.cost) {
+                    cookies -= skin.cost;
+                    ownedSkins[index] = true;
+                    cookieImage.src = skin.src;
+                    alert("Skin erfolgreich gekauft und ausgewählt!");
+                } else {
+                    alert("Nicht genug Cookies, um diesen Skin zu kaufen!");
+                }
+                updateCookieCount();
+                closeSkinMenu();
+
+                // Überprüfe, ob das "Alle Skins"-Achievement erreicht wurde
+                checkAchievements();
+            }
+
+            // Funktion zur Aktualisierung der Skin-Liste
+            function updateSkinMenu() {
+                const skinsContainer = document.getElementById("skinsContainer");
+                skinsContainer.innerHTML = "";
+                skins.forEach((skin, index) => {
+                    const skinItem = document.createElement("div");
+                    skinItem.className = "skin-item";
+                    skinItem.onclick = () => buyOrSelectSkin(index);
+
+                    const skinImage = document.createElement("img");
+                    skinImage.src = skin.src;
+                    skinImage.className = "skin-image";
+
+                    const skinInfo = document.createElement("p");
+                    skinInfo.textContent = ownedSkins[index]
+                        ? "Besitzt"
+                        : `Kosten: ${skin.cost} Cookies`;
+
+                    skinItem.append(skinImage, skinInfo);
+                    skinsContainer.appendChild(skinItem);
+                });
+            }
+
+
+            // ------------------------------
+            // HTML-Elemente
+            // ------------------------------
+            const kontoanzeige = document.getElementById("kontoanzeige");
+            const cookieImage = document.querySelector(".image-container img");
+            const cookieSkin = document.getElementById("cookieSkin");
+            const kaufButton = document.getElementById("cookieButton");
+            const upgradeButton = document.getElementById("upgradeButton");
+            const bonusButton = document.getElementById("bonusButton");
+            const buyBakerButton = document.getElementById("buyBakerButton");
+            const bakerInfoElement = document.getElementById("bakerInfo");
+            const bakerContainer = document.getElementById("bakerContainer");
+
+            // ------------------------------
+            // Cookies und Clickpower
+            // ------------------------------
+
+            // Klick-Event für Kekse
+            kaufButton.addEventListener("click", () => {
+                cookies += clickpower;
+                updateCookieCount();
+                checkAchievements(); // Achievements prüfen
+                updateAchievementList(); // Achievement-Liste aktualisieren
+            });
+
+            // Upgrade-Kauf
+            upgradeButton.addEventListener("click", () => {
+                const kosten = 10 * clickpower;
+                if (cookies < kosten) {
+                    alert("Das kannst du dir nicht leisten!");
+                } else {
+                    cookies -= kosten;
+                    clickpower++;
+                    updateCookieCount();
+                }
+            });
+
+            // Bonus-Kekse hinzufügen
+            bonusButton.addEventListener("click", () => {
+                cookies += bonuspower;
+                updateCookieCount();
+            });
+
+            // ------------------------------
+            // Bäcker-Management
+            // ------------------------------
+
+            // Bäcker kaufen
+            buyBakerButton.addEventListener("click", () => {
+                if (cookies >= 300 && bakers < maxBakers) {
+                    cookies -= 300;
+                    bakers++;
+                    updateCookieCount();
+                    updateBakerInfo();
+                    addBakerVisual();
+                    checkAchievements(); // Achievements prüfen
+                    updateAchievementList(); // Achievement-Liste aktualisieren
+                } else if (bakers >= maxBakers) {
+                    alert("Maximale Anzahl von Bäckern erreicht!");
+                } else {
+                    alert("Nicht genug Cookies, um einen Bäcker zu kaufen!");
+                }
+            });
+
+            // Kekse pro Sekunde durch Bäcker hinzufügen
+            setInterval(() => {
+                if (bakers > 0) {
+                    cookies += bakers * cookiesPerSecond;
+                    updateCookieCount();
+                }
+            }, 1000); // Alle 1 Sekunde
+
+            // ------------------------------
+            // Skins
+            // ------------------------------
+
+            // Skin-Menü öffnen
+            cookieSkin.addEventListener("click", () => {
+                updateSkinMenu();
+                document.getElementById("skinMenu").style.display = "block";
+            });
+
+            // Skin kaufen oder wechseln
+            function buyOrSelectSkin(index) {
+                const skin = skins[index];
+                if (ownedSkins[index]) {
+                    cookieImage.src = skin.src;
+                    alert("Skin erfolgreich ausgewählt!");
+                } else if (cookies >= skin.cost) {
+                    cookies -= skin.cost;
+                    ownedSkins[index] = true;
+                    cookieImage.src = skin.src;
+                    alert("Skin erfolgreich gekauft und ausgewählt!");
+                } else {
+                    alert("Nicht genug Cookies, um diesen Skin zu kaufen!");
+                }
+                updateCookieCount();
+                closeSkinMenu();
+            }
+
+            // Skin-Menü aktualisieren
+            function updateSkinMenu() {
+                const skinsContainer = document.getElementById("skinsContainer");
+                skinsContainer.innerHTML = "";
+                skins.forEach((skin, index) => {
+                    const skinItem = document.createElement("div");
+                    skinItem.className = "skin-item";
+                    skinItem.onclick = () => buyOrSelectSkin(index);
+
+                    const skinImage = document.createElement("img");
+                    skinImage.src = skin.src;
+                    skinImage.className = "skin-image";
+
+                    const skinInfo = document.createElement("p");
+                    skinInfo.textContent = ownedSkins[index]
+                        ? "Besitzt"
+                        : `Kosten: ${skin.cost} Cookies`;
+
+                    skinItem.append(skinImage, skinInfo);
+                    skinsContainer.appendChild(skinItem);
+                });
+            }
+
+            // Skin-Menü schließen
+            function closeSkinMenu() {
+                document.getElementById("skinMenu").style.display = "none";
+            }
+
+            // ------------------------------
+            // Quick-Time-Events
+            // ------------------------------
+            function startQuickTimeEvent() {
+                const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+                document.getElementById("questionText").textContent = randomQuestion.question;
+                document.getElementById("answerA").textContent = randomQuestion.answers.a;
+                document.getElementById("answerB").textContent = randomQuestion.answers.b;
+                document.getElementById("answerC").textContent = randomQuestion.answers.c;
+                currentCorrectAnswer = randomQuestion.correct;
+                document.getElementById("quickTimeEvent").style.display = "block";
+            }
+
+            // Antwort prüfen
+            function answerQuestion(answer) {
+                if (answer === currentCorrectAnswer) {
+                    cookies += 100;
+                    alert("Richtig! Du bekommst 100 Kekse!");
+                } else {
+                    const penalty = 150;
+                    cookies = Math.max(0, cookies - penalty); // Kekse abziehen, aber nicht unter 0 fallen lassen
+                    alert(`Falsch! Dir wurden ${penalty} Kekse geklaut.`);
+                }
+                updateCookieCount();
+                document.getElementById("quickTimeEvent").style.display = "none";
+            }
+
+            // Zufälliges Quick-Time-Event auslösen
+            setInterval(() => {
+                if (Math.random() < 0.3) startQuickTimeEvent();
+            }, 30000);
+
+            // ------------------------------
+            // Hilfsfunktionen
+            // ------------------------------
+            function updateCookieCount() {
+                kontoanzeige.textContent = `Cookies: ${cookies}`;
+            }
+
+            function updateBakerInfo() {
+                bakerInfoElement.textContent = `Bäcker: ${bakers}/${maxBakers}`;
+            }
+
+            function addBakerVisual() {
+                const bakerElement = document.createElement("div");
+                bakerElement.className = "baker";
+                bakerContainer.appendChild(bakerElement);
+            }
+
+            let backgroundsChanged = 0; // Zählt die Anzahl der Hintergrundwechsel
+
+            function changeBackground(theme) {
+                const body = document.body;
+
+                // Entferne bestehende Hintergrundstile
+                body.style.backgroundImage = "";
+                body.style.backgroundColor = "";
+
+                // Hintergrund setzen
+                if (theme === 'image') {
+                    body.style.backgroundImage = "url('Hintergrund/White Cookie.jpeg')";
+                    body.style.backgroundSize = "cover";
+                    body.style.backgroundRepeat = "no-repeat";
+                }
+                else if (theme === 'image 1') {
+                    body.style.backgroundImage = "url('Hintergrund/blau.jpg')";
+                    body.style.backgroundSize = "cover";
+                    body.style.backgroundRepeat = "no-repeat";
+                }
+                else if (theme === 'image 2') {
+                    body.style.backgroundImage = "url('Hintergrund/küche.jpg')";
+                    body.style.backgroundSize = "cover";
+                    body.style.backgroundRepeat = "no-repeat";
+                }
+
+                // Zähler erhöhen und Achievement prüfen
+                backgroundsChanged++;
+                checkAchievements(); // Prüft, ob Achievements ausgelöst werden sollen
+            }
+
+            // Neue Bedingung zur Freischaltung des "Weltreise"-Achievements hinzufügen
+            achievements.forEach(achievement => {
+                if (achievement.id === "Background") {
+                    achievement.condition = () => backgroundsChanged >= 3; // Nach 2 Wechseln freischalten
+                }
+            });
+
+            // ------------------------------
+            // Sterne-System mit Kaufoption
+            // ------------------------------
+            let stars = 0; // Aktuelle Anzahl an Sternen
+            const starPrices = [750, 1000, 1250, 1500, 3000]; // Preise für die Sterne
+
+            // Funktion zum Kauf eines Sterns
+            function buyStar() {
+                if (stars < starPrices.length) {
+                    const price = starPrices[stars];
+                    if (cookies >= price) {
+                        cookies -= price; // Cookies abziehen
+                        stars++; // Stern hinzufügen
+                        updateCookieCount();
+                        updateStarCount();
+                        addStarVisual(); // Stern in UI hinzufügen
+                        checkAchievements(); // Überprüfe Achievements
+
+                        if (stars === starPrices.length) {
+                            alert("Herzlichen Glückwunsch! Du hast alle 5 Sterne gekauft und 1500 Cookies als Belohnung erhalten!");
+                            cookies += 1500; // Belohnung bei 5 Sternen
+                            updateCookieCount();
+                        }
+                    } else {
+                        alert("Nicht genug Cookies, um einen Stern zu kaufen!");
+                    }
+                } else {
+                    alert("Du hast bereits alle Sterne!");
+                }
+            }
+
+            // Achievement für 5 Sterne hinzufügen
+            achievements.push({
+                id: "fiveStars",
+                title: "Sterne-Sammler",
+                description: "Kaufe alle 5 Sterne und erhalte eine Belohnung!",
+                unlocked: false,
+                condition: () => stars === 5 // Bedingung: 5 Sterne gekauft
+            });
+
+            // Funktion zur Anzeige der aktuellen Anzahl an Sternen
+            function updateStarCount() {
+                const starDisplay = document.getElementById("starDisplay");
+                starDisplay.textContent = `Sterne: ${stars}/5 (Kosten: ${stars < starPrices.length ? starPrices[stars] + " Cookies" : "Keine weiteren Sterne"})`;
+            }
+
+            // Funktion zum Hinzufügen eines visuellen Sterns
+            function addStarVisual() {
+                const starVisual = document.createElement("div");
+                starVisual.className = "star";
+                document.getElementById("starVisualContainer").appendChild(starVisual);
+            }
+
+            // HTML-Elemente für die Sterne-Funktion
+            const starContainer = document.createElement("div");
+            starContainer.id = "starContainer";
+            starContainer.innerHTML = `
+    <p id="starDisplay">Sterne: 0/5 (Kosten: 750 Cookies)</p>
+    <button id="buyStarButton">Stern kaufen</button>
+    <div id="starVisualContainer" class="star-visual-container"></div>
+`;
+            document.body.appendChild(starContainer);
+
+            // Event-Listener für den "Stern kaufen"-Button
+            document.getElementById("buyStarButton").addEventListener("click", buyStar);
+
+            // ------------------------------
+            // Einbindung in die Hilfsfunktionen
+            // ------------------------------
+            updateStarCount(); // Initiale Anzeige der Sterne
+
+        </script>
+
+        <!-- Container für das Skin-Menü -->
+        <div id="skinMenu" style="display:none;">
+            <h2>Skins-Shop</h2>
+            <div id="skinsContainer">
+                <div class="skin-item" onclick="buySkin(0)">
+                    <img src="Kekse Skins/Keks.png" alt="Standard Skin" class="skin-image">
+                    <p>Kosten: 0 Cookies</p>
+                </div>
+                <div class="skin-item" onclick="buySkin(1)">
+                    <img src="Kekse Skins/Chip Skin.png" alt="Chip Skin" class="skin-image">
+                    <p>Kosten: 50 Cookies</p>
+                </div>
+                <div class="skin-item" onclick="buySkin(2)">
+                    <img src="Kekse Skins/Donut Skin.png" alt="Donut Skin" class="skin-image">
+                    <p>Kosten: 150 Cookies</p>
+                </div>
+                <div class="skin-item" onclick="buySkin(3)">
+                    <img src="Kekse Skins/Toiletenpapier Skin.png" alt="Toilettenpapier Skin" class="skin-image">
+                    <p>Kosten: 200 Cookies</p>
+                </div>
+                <div class="skin-item" onclick="buySkin(4)">
+                    <img src="Kekse Skins/Pizza.png" alt="Pizza" class="skin-image">
+                    <p>Kosten: 250 Cookies</p>
+                </div>
+                <div class="skin-item" onclick="buySkin(5)">
+                    <img src="Kekse Skins/Weinachtsmann Skin.png" alt="Weihnachts-Cookie" class="skin-image">
+                    <p>Kosten: 300 Cookies</p>
+                </div>
+                <div class="skin-item" onclick="buySkin(6)">
+                    <img src="Kekse Skins/minecraft.png" alt="Minecraft" class="skin-image">
+                    <p>Kosten: 350 Cookies</p>
+                </div>
+                <div class="skin-item" onclick="buySkin(7)">
+                    <img src="Kekse Skins/Oreo Skin.png" alt="Oreo" class="skin-image">
+                    <p>Kosten: 400 Cookies</p>
+                </div>
+                <div class="skin-item" onclick="buySkin(11)">
+                    <img src="Kekse Skins/cd.png" alt="Game" class="skin-image">
+                    <p>Kosten: 450 Cookies</p>
+                    <div class="skin-item" onclick="buySkin(8)">
+                        <img src="Kekse Skins/toast.png" alt="Toast" class="skin-image">
+                        <p>Kosten: 500 Cookies</p>
+                    </div>
+                    <div class="skin-item" onclick="buySkin(9)">
+                        <img src="Kekse Skins/spiegelei.png" alt="Spiegelei" class="skin-image">
+                        <p>Kosten: 600 Cookies</p>
+                    </div>
+                    <div class="skin-item" onclick="buySkin(10)">
+                        <img src="Kekse Skins/Offizier Skin.png" alt="Offizier Skin" class="skin-image">
+                        <p>Kosten: 700 Cookies</p>
+                    </div>
+                    <div class="skin-item" onclick="buySkin(11)">
+                        <img src="Kekse Skins/kaffe.png" alt="Game" class="skin-image">
+                        <p>Kosten: 800 Cookies</p>
+                    </div>
+                    <div class="skin-item" onclick="buySkin(12)">
+                        <img src="Kekse Skins/Zucker.png" alt="Zuckerstange" class="skin-image">
+                        <p>Kosten: 900 Cookies</p>
+                    </div>
+                    <div class="skin-item" onclick="buySkin(12)">
+                        <img src="Kekse Skins/Slurf.png" alt="Slurf" class="skin-image">
+                        <p>Kosten: 1000 Cookies</p>
+                    </div>
+                    <div class="skin-item" onclick="buySkin(12)">
+                        <img src="Kekse Skins/Bralienen.png" alt="Bralienen" class="skin-image">
+                        <p>Kosten: 1250 Cookies</p>
+                    </div>
+                    <div class="skin-item" onclick="buySkin(12)">
+                        <img src="Kekse Skins/galexie.png" alt="Galaxie" class="skin-image">
+                        <p>Kosten: 1500 Cookies</p>
+                    </div>
+                    <div class="skin-item" onclick="buySkin(13)">
+                        <img src="Kekse Skins/golden.png" alt="Gold-Cookie" class="skin-image">
+                        <p>Kosten: 2000 Cookies</p>
+                    </div>
+                </div>
+                <button onclick="closeSkinMenu()">Schließen</button>
+            </div>
+
+            <!-- Quick-Time-Event-Popup -->
+            <div id="quickTimeEvent" style="display:none;">
+                <h2>Quick-Time Event!</h2>
+                <p id="questionText"></p>
+                <button onclick="answerQuestion('a')" id="answerA"></button>
+                <button onclick="answerQuestion('b')" id="answerB"></button>
+                <button onclick="answerQuestion('c')" id="answerC"></button>
+            </div>
+
+    </main>
+
+    <audio controls loop class="musik-player">
+        <source src="Sound/lady-of-the-80x27s-128379.mp3" type="audio/mpeg">
+    </audio>
+
+
+
+</body>
+
+</html>

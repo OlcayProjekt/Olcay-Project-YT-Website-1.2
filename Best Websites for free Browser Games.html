@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+	<title>Best Websites for free Browser Games</title>
+	<link rel="stylesheet" href="./CSS Style/bwffbg_style.css">
+
+</head>
+
+<body>
+
+	<div class="search-container">
+		<input type="text" id="search" placeholder="Suche...">
+		<button onclick="search()">🔍</button>
+	</div>
+
+	<!-- Login icon container -->
+	<div class="login-container" id="loginBtn">
+		<img src="Gegenstände/login.png" alt="Logo">
+	</div>
+
+	<!-- Login popup -->
+	<div class="login-popup" id="loginPopup">
+		<h2>Speicher Funktion</h2>
+		<input type="text" placeholder="Username" id="username">
+		<input type="password" placeholder="Password" id="password">
+		<button id="submitLogin">Login</button>
+	</div>
+
+	<script src="JS/suchleiste.js"></script>
+	<script src="JS/login.js"></script>
+	<main>
+
+
+		<h1>Best Websites for free Browser Games</h1>
+
+		<h4>Navigations Leiste:</h4>
+		<nav>
+			<ul>
+				<li> <a href="index.html">Startseite</a> </li>
+				<li> <a href="Bibilothek.html">Bibilothek</a> </li>
+				<li> <a href="Umfrage.html">Umfrage</a> </li>
+				<li> <a href="Geschichte-Olcay.html">Geschichte</a> </li>
+				<li> <a href="Sonstiges.html">Sonstiges</a> </li>
+				<li> <a href="https://www.youtube.com/@olcayprojekt" target="_blanke">Youtube Kanal Olcay & Projekt </a>
+				</li>
+				<li> <a href="https://www.tiktok.com/@olcayprojekt" target="_blanke">Tiktok Kanal Olcay & Projekt</a>
+				</li>
+				<li> <a href="https://www.instagram.com/olcayundprojekt/" target="_blanke">Instagram Olcay & Projekt</a>
+				</li>
+				<li> <a href="https://www.facebook.com/olcayundprojekt/" targett="_blanke">Facebook Olcay Projekt</a>
+				</li>
+				<li> <a href="https://www.twitch.tv/olcayprojekt" target="_blanke">Twitch Kanal OlcayProjekt</a> </li>
+				<li> <a href="https://twitter.com/olcayprojekt" target="_blanke">Twitter/X Kanal Olcay&Projekt</a></li>
+				<li> <a href="https://discord.com/invite/BVzfEvpKb3" target="_blanke">Discord</a></li>
+			</ul>
+		</nav>
+
+		<p>Letzte Aktualiesierung 29.August 2024 9:50</p>
+
+		<!-- Grid-Container für mehrere Boxen -->
+		<div class="grid-container" id="box-grid">
+			<!-- Boxen werden per JavaScript hinzugefügt -->
+		</div>
+
+	</main>
+
+	<script>
+		// Funktion zum Hinzufügen von Boxen mit Links
+		function addCategoryCard(imageUrl, title, description, audioFile, linkUrl) {
+			// Grid-Container
+			var gridContainer = document.getElementById('box-grid');
+
+			// Erstelle einen Link (a-Tag)
+			var link = document.createElement('a');
+			link.href = linkUrl; // Setze die URL des Links
+			// Keine Verwendung von target="_blank", damit der Link im gleichen Tab geöffnet wird
+
+			// Erstelle eine neue Box (category-card)
+			var newCard = document.createElement('div');
+			newCard.classList.add('category-card');
+			newCard.style.backgroundImage = 'url(' + imageUrl + ')';
+
+			// Erstelle den Inhalt der Box
+			var content = document.createElement('div');
+			content.classList.add('category-content');
+
+			var titleElement = document.createElement('h2');
+			titleElement.textContent = title;
+
+			var descriptionElement = document.createElement('p');
+			descriptionElement.textContent = description;
+
+			// Füge den Inhalt zur Box hinzu
+			content.appendChild(titleElement);
+			content.appendChild(descriptionElement);
+			newCard.appendChild(content);
+
+			// Füge die Box zum Link hinzu
+			link.appendChild(newCard);
+
+			// Füge die verlinkte Box zum Grid hinzu
+			gridContainer.appendChild(link);
+
+			// Füge Audio-Funktion hinzu, die beim Laden der Seite abspielt
+			newCard.addEventListener('click', function () {
+				var audio = document.getElementById('background-audio');
+				audio.src = audioFile; // Setze die neue Audio-Datei
+				audio.play();
+			});
+		}
+
+		// Beispiel-Aufrufe für das Hinzufügen von Boxen
+		addCategoryCard('Hintergrund/krunker.avif', 'Krunker', 'Krunker, oder Krunker.io, ist ein am 20. Mai 2018 erschienener Online-Ego-Shooter des Schweizer Entwicklers', 'audio1.mp3', 'https://krunker.io/');
+		addCategoryCard('Hintergrund/minecraft.jpeg', 'Minecraft Classic', 'Minecraft Classic ist Minecraft in der alten form', 'audio2.mp3', 'https://classic.minecraft.net/');
+		addCategoryCard('Hintergrund/redstone.jpg', 'Minecraft 1.5.2', 'Minecraft aktuellere Version', 'audio3.mp3', 'https://g.deev.is/');
+		addCategoryCard('Hintergrund/spielaffe.avif', 'Spieleaffe', 'Eine Platform wo man viele Classiker Spielen kann', 'audio2.mp3', 'https://www.spieleaffe.org/');
+		addCategoryCard('Hintergrund/crazy.avif', 'Crazy Games', 'Viele Spiele auf einem blick', 'audio3.mp3', 'https://de.crazygames.com/');
+		addCategoryCard('Hintergrund/Powerline.jpg', 'Powerline.io', 'Snake.IO', 'audio3.mp3', 'http://powerline-io.org/');
+		addCategoryCard('Hintergrund/super-mario.jpg', 'Infinite Mario Bros', 'Mario Bros abgewandelt', 'audio3.mp3', 'https://www.smbgames.be/infinite-mario.php');
+		addCategoryCard('Hintergrund/1v1.avif', '1v1 lol', 'Wie Fortnite', 'audio3.mp3', 'https://1v1.lol/');
+		addCategoryCard('Hintergrund/car.webp', 'Slow Roads.io', 'Sprit preise sind dir im echten leben zu hoch?', 'audio3.mp3', 'https://slowroads.io/');
+		addCategoryCard('Hintergrund/town.png', 'Townscaper', 'Baue dir deine eigene Stadt', 'audio3.mp3', 'https://oskarstalberg.com/Townscaper/');
+		addCategoryCard('Hintergrund/emulator.png', 'Emulator Online', 'Alle Klassiker auf einem Blick', 'audio3.mp3', 'https://emulatoronline.com/');
+		addCategoryCard('Hintergrund/EMU.jpg', 'emupedia', 'Klassiker aus dem alten Windows', 'audio3.mp3', 'https://emupedia.net/beta/emuos/');
+		addCategoryCard('Hintergrund/classic.jpg', 'Play Classic', 'Noch mehr Klassiker?', 'audio3.mp3', 'https://playclassic.games/');
+		addCategoryCard('Hintergrund/map.webp', 'lostgamer.io', 'Die Map eines Spieles erkunden', 'audio3.mp3', 'https://lostgamer.io/');
+		addCategoryCard('Hintergrund/phrase.jpg', 'Play Phrase', 'Gib ein Wort/Satz ein und du erhählst eine Film szene daraus', 'audio3.mp3', 'https://www.playphrase.me/#/search?language=en');
+	</script>
+</body>
+
+</html>
