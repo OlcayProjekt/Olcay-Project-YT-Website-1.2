@@ -270,46 +270,6 @@
         .back-button:hover {
             background-color: #c0392b;
         }
-
-        /* Mobile Steuerung verstecken für größere Bildschirme */
-        .mobile-controls {
-            display: none;
-            /* Standardmäßig verstecken */
-        }
-
-        /* Für kleinere Bildschirme anzeigen */
-        @media screen and (max-width: 768px) {
-            .mobile-controls {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-                margin-top: 10px;
-            }
-
-            .horizontal-buttons {
-                display: flex;
-                gap: 10px;
-            }
-
-            .mobile-controls button {
-                width: 60px;
-                height: 60px;
-                font-size: 24px;
-                background-color: #3393dc;
-                color: white;
-                border: none;
-                border-radius: 8px;
-                cursor: pointer;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-                transition: background-color 0.3s ease, transform 0.2s ease;
-            }
-
-            .mobile-controls button:active {
-                background-color: #0562ef;
-                transform: scale(0.95);
-            }
-        }
     </style>
 </head>
 
@@ -345,7 +305,7 @@
     </div>
 
     <script>
-        let canvas = document.getElementById('snakeCanvas');
+        let canvas = document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
         let rows = 20;
         let cols = 20;
@@ -359,20 +319,6 @@
 
         document.addEventListener('keydown', changeDirection);
         let gameInterval = setInterval(gameLoop, speed);
-
-        // Füge Event-Listener für mobile Buttons hinzu
-        document.getElementById('up').addEventListener('click', () => {
-            if (direction !== 'DOWN') direction = 'UP';
-        });
-        document.getElementById('down').addEventListener('click', () => {
-            if (direction !== 'UP') direction = 'DOWN';
-        });
-        document.getElementById('left').addEventListener('click', () => {
-            if (direction !== 'RIGHT') direction = 'LEFT';
-        });
-        document.getElementById('right').addEventListener('click', () => {
-            if (direction !== 'LEFT') direction = 'RIGHT';
-        });
 
         function gameLoop() {
             moveSnake();
@@ -456,21 +402,12 @@
             }
             return false;
         }
+
+        function goBack() {
+            // Funktion, um zur vorherigen Seite zurückzugehen
+            window.location.href = "Sonstiges.html"; // Hier kannst du den Link zur Zielseite anpassen
+        }
     </script>
-
-    <!-- Spielfeld -->
-    <canvas id="snakeCanvas" width="400" height="400"></canvas>
-
-    <!-- Steuerung für mobile Geräte -->
-    <div class="mobile-controls">
-        <button id="up">⬆️</button>
-        <div class="horizontal-buttons">
-            <button id="left">⬅️</button>
-            <button id="right">➡️</button>
-        </div>
-        <button id="down">⬇️</button>
-    </div>
-
 </body>
 
 </html>
