@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Layout</title>
+    <style>
+       
+
+        /* Login popup */
+        .login-popup {
+            position: fixed;
+            top: 10%;
+            right: 3%;
+            width: 300px;
+            background-color: #858080;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-popup.active {
+            display: flex;
+        }
+
+        .login-popup input[type="text"],
+        .login-popup input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .login-popup button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #0562ef;
+            color: white;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .login-popup button:hover {
+            background-color: #00b7ea;
+        }
+
+        .login-popup .close:hover {
+            color: red;
+        }
+
+        .login-popup .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #333;
+            /* Optional: Setze eine angenehme Farbe */
+        }
+
+        .login-popup h2 {
+            margin: 40px 0 15px;
+            /* Erhöht den Abstand von der oberen Kante */
+            font-size: 18px;
+            color: #0562ef;
+            text-align: center;
+            /* Zentriert den Titel */
+        }
+
+        .search-container {
+            position: fixed;
+            top: 20px;
+            /* Abstand vom oberen Rand */
+            right: 20px;
+            /* Abstand vom linken Rand */
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Transparentes Weiß */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            z-index: 1000;
+            /* Immer im Vordergrund */
+        }
+
+        input[type="text"] {
+            border: none;
+            outline: none;
+            padding: 10px;
+            border-radius: 5px;
+            margin-right: 5px;
+            width: 200px;
+            /* Breite der Suchleiste */
+        }
+
+        button {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #002a5c;
+            padding: 10px 20px;
+            height: 120px;
+            /* Höhere Navbar für bessere Struktur */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        /* Linker Bereich: Profilbild + Überschrift + Links */
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .profile-image {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 2px solid white;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .navbar-title {
+            color: white;
+            font-size: 24px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            /* Abstand zur Navigation */
+        }
+
+        /* Navbar-Punkte unter der Überschrift */
+        .navbar-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 5px 10px;
+            transition: 0.3s;
+        }
+
+        .navbar-links a:hover {
+            color: #ffcc00;
+            text-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+        }
+
+        /* Suchleiste und Login */
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container input {
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            margin-right: 10px;
+        }
+
+        .search-container img {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .search-container img:hover {
+            transform: scale(1.1);
+        }
+
+        body {
+            background-color: #00ffff;
+            background-image: url("../Hintergrund/blue\ wallpaper.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: left;
+            font-family: Arial, sans-serif;
+        }
+
+        nav a {
+            float: left;
+            text-decoration: none;
+            transition: all 0.2s ease-out;
+        }
+
+
+        /*Normal*/
+
+        nav a:hover {
+            color: rgb(32, 247, 29);
+            text-shadow: 4px 4px 8px #000000;
+            transform: translateX(1em);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        nav a {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* unvisited link */
+        a:link {
+            color: rgb(201, 9, 9);
+        }
+
+        /* visited link */
+        a:visited {
+            color: blue;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: rgb(11, 143, 68);
+        }
+
+        main {
+            max-width: 1024px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        h3 {
+            color: blueviolet
+        }
+
+        #viedeoinhalte {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2em;
+        }
+
+        #Startseite {
+            text-shadow: 2px 2px 8px #f7f6f6;
+        }
+
+        header {
+            text-align: left;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* Trailer Section Styling */
+        .trailer-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .content-box {
+            display: flex;
+            flex-direction: row;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 1200px;
+            /* Erhöhte maximale Breite */
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover Effect */
+        .content-box:hover {
+            transform: scale(1.05);
+            /* Vergrößerung */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            /* Tieferer Schatten */
+        }
+
+        .video-container {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .info-container {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .info-container h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .info-container p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .info-container ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .info-container ul li {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 768px) {
+            .content-box {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .video-container {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .info-container {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+
+        /*Video Vorstellung*/
+        .grid {
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2em;
+
+
+            align-items: start;
+            /* Richtet die Grid-Items vertikal aus */
+        }
+
+        .grid-item iframe {
+            transition: transform 0.3s ease-in-out;
+            /* Übergang für das Video */
+        }
+
+        .grid-item:hover {
+            transform: scale(1.03);
+            /* Vergrößert die Box beim Hover */
+        }
+
+        .grid-item:hover iframe {
+            transform: scale(1.03);
+            /* Vergrößert das Video selbst leicht beim Hover */
+        }
+
+        /*Scratch*/
+        .scratch-game-container {
+            text-align: center;
+            margin: 20px auto;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #a2ff00;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: fit-content;
+        }
+
+        .scratch-game-container iframe {
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Login icon container -->
+    <div class="login-container" id="loginBtn">
+        <img src="Gegenstände/login.png" alt="Logo">
+    </div>
+
+    <!-- Login popup -->
+    <div class="login-popup" id="loginPopup">
+        <h2>Speicher Funktion</h2>
+        <input type="text" placeholder="Username" id="username">
+        <input type="password" placeholder="Password" id="password">
+        <button id="submitLogin">Login</button>
+    </div>
+
+    <script src="JS/suchleiste.js"></script>
+    <script src="JS/login.js"></script>
+
+    <div class="navbar">
+        <!-- Linker Bereich: Profilbild, Überschrift, Links -->
+        <div class="navbar-left">
+            <img src="Gegenstände/New Logo 4K.jpg" alt="Profilbild" class="profile-image"
+                onclick="location.href='https://www.youtube.com/@olcayprojekt';">
+            <div class="profile-container">
+                <h1 class="navbar-title">Olcay & Projekt 1.2</h1>
+                <div class="navbar-links">
+                    <a href="index.html">Startseite</a>
+                    <a href="Bibilothek.html">Bibliothek</a>
+                    <a href="umfrage.html">Umfrage</a>
+                    <a href="Geschichte-Olcay.html">Geschichte</a>
+                    <a href="Sonstiges.html">Sonstiges</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rechter Bereich: Suchleiste und Login -->
+        <div class="navbar-right">
+            <div class="search-container">
+                <input type="text" placeholder="Suche...">
+                <img src="Gegenstände/login.png" alt="Login" onclick="openLoginPopup();">
+            </div>
+        </div>
+    </div>
+
+    <div id="viedeoinhalte"></div>
+
+
+		<h1 id="Startseite">Startseite</h1>
+
+		<audio id="background-audio" autoplay>
+			<source src="Sound/Website Open Sound.m4a" type="audio/mpeg">
+		</audio>
+
+		<hr color="Red">
+
+		<p>Letzte Aktualiesierung 25.Januar 2025 9:50</p>
+
+		<p>Hier ist die Startseite des Youtube Kanals Olcay & Projekt</p>
+
+		<hr color="Red">
+
+		<h3>Wie ist die Website aufgebaut</h3>
+
+		<p>Die Website besteht Hauptsächlich über die Navigationsleiste die dich überall hinführt</p>
+
+		<p>Auf ,,Sonstiges'' findest du alle Unterkategorie der Website</p>
+
+		<hr color="Red">
+
+		<section class="trailer-section">
+			<div class="content-box">
+				<div class="video-container">
+					<iframe width="560" height="335" src="https://www.youtube.com/embed/aTS9n_m7TW0?si=PSLPY9FRTHHOVZce"
+						title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+							clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+					</iframe>
+				</div>
+				<div class="info-container">
+					<h2>Trade of Live Trailer</h2>
+					<p>Im Kurzfilm Trade of Live lernen wir William kennen der wieder zu seinen alten Sünden
+						zurückkehrt.</p>
+					<ul>
+						<li>Veröffentlichungsdatum: 1. Januar 2025</li>
+						<li>Kategorie: Thriller</li>
+						<li>Dauer: 1:30 Minuten</li>
+					</ul>
+					<a href="https://www.youtube.com/@olcayprojekt" class="btn">Mehr auf YouTube ansehen</a>
+				</div>
+			</div>
+		</section>
+
+		<hr color="Red">
+
+		<h3>Warum gibt es Olcay & Projekt</h3>
+
+		<p>Olcay & Projekt wurde gegründet damit man alle Bildungs-Projekte von Olcay von allen Geräten Stream kann.</p>
+
+		<h4>Aktuelle Youtube Videos:</h4>
+
+		<div>
+			<div class="grid">
+				<div class="grid-item">
+
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/MaI6TeJpZPg?si=KOiBv71fliRbaCNa"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="grid-item">
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/jtwhCTTPPrs?si=oxEuBRs0o8xEk1qL"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="grid-item">
+
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/g0O1IVNZs0Q?si=hN2ktDh-Oo1rBT8i"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+					<div class="grid-item">
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/8T2zogKcFI8?si=Lk09L_iP4_EILjN_"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+			</div>
+
+					<h4>Ältere Videos:</h4>
+					
+					<div class="grid">
+
+						<div class="grid-item">
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/5GAUTqw_IGA?si=IQKk9uFwUEu2tTLv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+						</div>
+						<div class="grid-item">
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/X_VmKIgNGGk?si=cvDSPYBVsZYLhk4X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+						</div>
+						<div class="grid-item">
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/8xMb38NTKpk?si=f3meMNBPv4Az8zQ7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+						</div>
+						<div class="grid-item">
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/VpBdKq79AGo?si=qIeCdikMDzt1p5hc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+						</div>
+					</div>
+			</div>
+					
+
+				<hr color="blue">
+
+				<header>
+					<h1>Breaking Bad Game</h1>
+					<p>Ein Scratch Projekt</p>
+				</header>
+
+				<section class="bio">
+					<p>Das Spiel hier war mein erstes Projekt was ich im Informatik Unterricht begonnen hatte.</p>
+					<p>Diese war der Anfang der Programmierung.</p>
+				</section>
+
+				<div class="scratch-game-container">
+					<iframe src="https://scratch.mit.edu/projects/967607234/embed" allowtransparency="true" width="1130"
+						height="500" frameborder="0" scrolling="no" allowfullscreen></iframe>
+				</div>
+
+				<hr color="blue">
+
+				<h4>Beiträge des Community Tabs:</h4>
+
+				<details>
+					<summary>Community Tab Interaktion</summary>
+					<p>Die Weiterleitung: <a href="community tab.html">Community Tab</a> </li>
+					</p>
+				</details>
+
+	</main>
+
+</body>
+
+</html>
