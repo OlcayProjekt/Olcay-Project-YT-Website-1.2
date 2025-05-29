@@ -1,212 +1,224 @@
 /* Login popup */
 .login-popup {
-    position: fixed;
-    top: 10%;
-    right: 0%;
-    width: 300px;
-    background-color: #3393dc;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
-    display: none;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .login-popup.active {
-    display: flex;
-  }
-  
-  .login-popup h2 {
-    margin: 15px 0 20px;
-    font-size: 18px;
-    color: #00b7ea;
-    text-align: center;
-  }
-  
-  .login-popup input[type="text"],
-  .login-popup input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-  }
-  
-  .login-popup button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background-color: #0562ef;
-    color: white;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  
-  .login-popup button:hover {
-    background-color: #0562ef;
-  }
-  
-  .login-popup .close {
-    position: absolute;
-    top: -15px; /* Verschiebt das X nach oben */
-    left: 50%;
-    transform: translateX(-50%);
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: #333;
-  }
-  
-  .login-popup .close:hover {
-    color: red;
-  }
+  position: fixed;
+  top: 10%;
+  right: 0%;
+  width: 300px;
+  background-color: #3393dc;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-popup.active {
+  display: flex;
+}
+
+.login-popup h2 {
+  margin: 15px 0 20px;
+  font-size: 18px;
+  color: #00b7ea;
+  text-align: center;
+}
+
+.login-popup input[type="text"],
+.login-popup input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.login-popup button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #0562ef;
+  color: white;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.login-popup button:hover {
+  background-color: #0562ef;
+}
+
+.login-popup .close {
+  position: absolute;
+  top: -15px;
+  /* Verschiebt das X nach oben */
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+.login-popup .close:hover {
+  color: red;
+}
 
 .login-container {
-    position: fixed;
-    top: 10%;
-    right: 0;
-    width: 60px;
-    height: 120px;
-    background-color: #3393dc;
-    border-radius: 15px 0 0 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 1000;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+  position: fixed;
+  top: 10%;
+  right: 0;
+  width: 60px;
+  height: 120px;
+  background-color: #3393dc;
+  border-radius: 15px 0 0 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.login-container:hover {
+  transform: scale(1.05);
+  background-color: #00b7ea;
+}
+
+.login-container img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Animation */
+.login-container.animate {
+  animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
   }
 
-  .login-container:hover {
-    transform: scale(1.05);
-    background-color: #00b7ea;
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
+}
 
-  .login-container img {
-    width: 40px;
-    height: 40px;
-  }
+/* Login popup */
+.login-popup {
+  position: fixed;
+  top: 10%;
+  right: 3%;
+  width: 300px;
+  background-color: #858080;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
 
-  /* Animation */
-  .login-container.animate {
-    animation: slideIn 0.5s ease;
-  }
+.login-popup.active {
+  display: flex;
+}
 
-  @keyframes slideIn {
-    0% {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
+.login-popup input[type="text"],
+.login-popup input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
 
-  /* Login popup */
-  .login-popup {
-    position: fixed;
-    top: 10%;
-    right: 3%;
-    width: 300px;
-    background-color: #858080;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
-    display: none;
-    flex-direction: column;
-    align-items: center;
-  }
+.login-popup button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #0562ef;
+  color: white;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
-  .login-popup.active {
-    display: flex;
-  }
+.login-popup button:hover {
+  background-color: #00b7ea;
+}
 
-  .login-popup input[type="text"],
-  .login-popup input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-  }
+.login-popup .close:hover {
+  color: red;
+}
 
-  .login-popup button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background-color: #0562ef;
-    color: white;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-  }
+.login-popup .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+  /* Optional: Setze eine angenehme Farbe */
+}
 
-  .login-popup button:hover {
-    background-color: #00b7ea;
-  }
-
-  .login-popup .close:hover {
-    color: red;
-  }
-
-  .login-popup .close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: #333; /* Optional: Setze eine angenehme Farbe */
-  }
-  
-  .login-popup h2 {
-    margin: 40px 0 15px; /* Erhöht den Abstand von der oberen Kante */
-    font-size: 18px;
-    color: #0562ef;
-    text-align: center; /* Zentriert den Titel */
-  }
+.login-popup h2 {
+  margin: 40px 0 15px;
+  /* Erhöht den Abstand von der oberen Kante */
+  font-size: 18px;
+  color: #0562ef;
+  text-align: center;
+  /* Zentriert den Titel */
+}
 
 .search-container {
-    position: fixed;
-    top: 20px; /* Abstand vom oberen Rand */
-    right: 20px; /* Abstand vom linken Rand */
-    background-color: rgba(255, 255, 255, 0.8); /* Transparentes Weiß */
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    z-index: 1000; /* Immer im Vordergrund */
+  position: fixed;
+  top: 20px;
+  /* Abstand vom oberen Rand */
+  right: 20px;
+  /* Abstand vom linken Rand */
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Transparentes Weiß */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  z-index: 1000;
+  /* Immer im Vordergrund */
 }
 
 input[type="text"] {
-    border: none;
-    outline: none;
-    padding: 10px;
-    border-radius: 5px;
-    margin-right: 5px;
-    width: 200px; /* Breite der Suchleiste */
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+  width: 200px;
+  /* Breite der Suchleiste */
 }
 
 button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    font-size: 16px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 /* Login-Button fixieren für Handys */
 @media screen and (max-width: 768px) {
   .login-container {
     position: fixed;
-    top: 80px; /* Unter der Suchleiste */
-    right: 20px; /* Abstand von der rechten Seite */
+    top: 80px;
+    /* Unter der Suchleiste */
+    right: 20px;
+    /* Abstand von der rechten Seite */
     width: 60px;
     height: 120px;
     background-color: #3393dc;
@@ -222,41 +234,41 @@ button {
 }
 
 body {
-    background-color: #00ffff;
-    background-image: url("../Hintergrund/blue\ wallpaper.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    text-align: left;
-    font-family: Arial, sans-serif;
+  background-color: #00ffff;
+  background-image: url("../Hintergrund/blue\ wallpaper.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: left;
+  font-family: Arial, sans-serif;
 }
 
 nav a {
-    float: left;
-    text-decoration: none;
-    transition: all 0.2s ease-out;
+  float: left;
+  text-decoration: none;
+  transition: all 0.2s ease-out;
 }
 
 
 /*Normal*/
 
 nav a:hover {
-    color: rgb(32, 247, 29);
-    text-shadow: 4px 4px 8px #000000;
-    transform: translateX(1em);
+  color: rgb(32, 247, 29);
+  text-shadow: 4px 4px 8px #000000;
+  transform: translateX(1em);
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
+  from {
+    opacity: 0;
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 nav a {
-    animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
 }
 
 /* unvisited link */
@@ -275,31 +287,31 @@ a:hover {
 }
 
 main {
-    max-width: 1024px;
-    margin: auto;
-    margin-top: 50px;
+  max-width: 1024px;
+  margin: auto;
+  margin-top: 50px;
 }
 
 h3 {
-    color: blueviolet
+  color: blueviolet
 }
 
 #viedeoinhalte {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
 }
 
 #Startseite {
-    text-shadow: 2px 2px 8px #f7f6f6;
+  text-shadow: 2px 2px 8px #f7f6f6;
 }
 
 header {
-    text-align: left;
+  text-align: left;
 }
 
 header h1 {
-    margin: 0;
+  margin: 0;
 }
 
 /* Trailer Section Styling */
@@ -317,15 +329,18 @@ header h1 {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  max-width: 1200px; /* Erhöhte maximale Breite */
+  max-width: 1200px;
+  /* Erhöhte maximale Breite */
   width: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Hover Effect */
 .content-box:hover {
-  transform: scale(1.05); /* Vergrößerung */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Tieferer Schatten */
+  transform: scale(1.05);
+  /* Vergrößerung */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* Tieferer Schatten */
 }
 
 .video-container {
@@ -375,65 +390,121 @@ header h1 {
 
 @media (max-width: 768px) {
   .content-box {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .video-container {
-      margin-right: 0;
-      margin-bottom: 20px;
+    margin-right: 0;
+    margin-bottom: 20px;
   }
 
   .info-container {
-      width: 100%;
+    width: 100%;
   }
 }
 
 @media (max-width: 768px) {
   .footer-content {
-      flex-direction: column;
+    flex-direction: column;
   }
 }
 
-/*Video Vorstellung*/
 .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* Automatisch responsive */
+  gap: 2em;
+  align-items: start;
+}
 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2em;
-
-
-    align-items: start;
-    /* Richtet die Grid-Items vertikal aus */
+.grid-item {
+  position: relative;
+  padding-top: 56.25%;
+  /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
 }
 
 .grid-item iframe {
-    transition: transform 0.3s ease-in-out;
-    /* Übergang für das Video */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .grid-item:hover {
-    transform: scale(1.03);
-    /* Vergrößert die Box beim Hover */
+  transform: scale(1.03);
 }
 
 .grid-item:hover iframe {
-    transform: scale(1.03);
-    /* Vergrößert das Video selbst leicht beim Hover */
+  transform: scale(1.03);
+}
+
+.grid-item {
+  transition: transform 0.5s ease-in-out; /* Dauer von 0.5s */
+}
+
+.grid-item iframe {
+  transition: transform 0.5s ease-in-out; /* Dauer auch hier anpassen */
+}
+
+.grid-item:hover {
+  transform: scale(1.03);
+}
+
+.grid-item:hover iframe {
+  transform: scale(1.03);
 }
 
 /*Scratch*/
 .scratch-game-container {
-    text-align: center;
-    margin: 20px auto;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #a2ff00;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: fit-content;
+  text-align: center;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #a2ff00;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: fit-content;
 }
 
 .scratch-game-container iframe {
-    border: none;
+  border: none;
 }
 
+.github-projects {
+  text-align: center;
+  margin: 50px auto;
+}
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.project-card {
+  background-color: #ffffffdd;
+  padding: 20px;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.project-card a {
+  color: #0562ef;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.project-card a:hover {
+  text-decoration: underline;
+}
