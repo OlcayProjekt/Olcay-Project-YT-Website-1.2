@@ -405,6 +405,27 @@
 			<li> <a href="https://discord.com/invite/BVzfEvpKb3" target="_blanke">Discord</a></li>
 
 	</main>
+
+	<button id="endButton" class="end-button" onclick="zurueckNachOben()">
+			🔝 Zurück nach oben
+		</button>
+
+		<script>
+			const endButton = document.getElementById("endButton");
+
+			window.addEventListener("scroll", () => {
+				if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
+					endButton.classList.add("show");
+				} else {
+					endButton.classList.remove("show");
+				}
+			});
+
+			function zurueckNachOben() {
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			}
+		</script>
+		
 </body>
 
 </html>
