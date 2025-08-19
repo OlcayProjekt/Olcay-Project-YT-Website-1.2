@@ -329,3 +329,83 @@ header h1 {
 .project-card a:hover {
   text-decoration: underline;
 }
+
+/* Über mich Bereich */
+.about-me {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-container {
+  display: flex;
+  gap: 30px;
+  max-width: 1000px;
+  width: 100%;
+  background: #ffffffcc;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease;
+}
+
+.about-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 255, 200, 0.6);
+}
+
+.about-image img {
+  width: 220px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(0, 200, 255, 0.7);
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #002a5c;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.portfolio-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #c236f5;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.portfolio-btn:hover {
+  background: #00ffee;
+  transform: scale(1.05);
+}
+
+.info-banner {
+  background: #00ffee;
+  color: #000;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
