@@ -105,7 +105,7 @@ a:link {
 
 /* visited link */
 a:visited {
-    color: blue;
+    color: rgb(0, 195, 255);
 }
 
 /* mouse over link */

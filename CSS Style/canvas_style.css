@@ -27,26 +27,6 @@ button {
     font-size: 16px;
 }
 
-/* Login-Button fixieren für Handys */
-@media screen and (max-width: 768px) {
-  .login-container {
-    position: fixed;
-    top: 80px; /* Unter der Suchleiste */
-    right: 20px; /* Abstand von der rechten Seite */
-    width: 60px;
-    height: 120px;
-    background-color: #3393dc;
-    border-radius: 15px 0 0 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 1000;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-  }
-}
-
 body {
     background-color: #00ffff;
     background-image: url("../Hintergrund/blue\ wallpaper.jpg");
