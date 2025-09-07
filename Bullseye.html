@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <title>Bullseye aka Benjamin "Dex" Poindexter</title>
+    <link rel="stylesheet" href="./CSS Style/bullseye_style.css">
+</head>
+
+<body>
+
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Suche...">
+        <button onclick="search()">🔍</button>
+    </div>
+
+    <script src="JS/suchleiste.js"></script>
+    <script src="JS/login.js"></script>
+    <h2>Bullseye aka Benjamin "Dex" Poindexter</h2>
+
+    <h4>Navigations Leiste:</h4>
+    <nav>
+        <ul>
+            <li> <a href="index.html">Startseite</a> </li>
+            <li> <a href="Bibilothek.html">Bibilothek</a> </li>
+            <li> <a href="umfrage.html">Umfrage</a> </li>
+            <li> <a href="Geschichte-Olcay.html">Geschichte</a> </li>
+            <li> <a href="Sonstiges.html">Sonstiges</a> </li>
+            <li> <a href="https://www.youtube.com/@olcayprojekt" target="_blanke">YouTube Kanal Olcay & Projekt </a>
+            </li>
+            <li> <a href="https://www.tiktok.com/@olcayprojekt" target="_blanke">Tiktok Kanal Olcay & Projekt</a> </li>
+            <li> <a href="https://www.instagram.com/olcayundprojekt/" target="_blanke">Instagram Olcay & Projekt</a>
+            </li>
+            <li> <a href="https://www.facebook.com/olcayundprojekt/" targett="_blanke">Facebook Olcay Projekt</a> </li>
+            <li> <a href="https://www.twitch.tv/olcayprojekt" target="_blanke">Twitch Kanal OlcayProjekt</a> </li>
+            <li> <a href="https://twitter.com/olcayprojekt" target="_blanke">Twitter/X Kanal Olcay&Projekt</a></li>
+            <li> <a href="https://discord.com/invite/BVzfEvpKb3" target="_blanke">Discord</a></li>
+        </ul>
+    </nav>
+
+<body>
+<h2 style="margin-top:18px">Ursprung & Persönlichkeit</h2>
+<p>In verschiedenen Erzählsträngen variiert Bullseyes Herkunft: manchmal wird er als geächteter Außenseiter beschrieben, in anderen als entwaffnend charmant vor der Maske. Sein Motiv ist oft Geld, Chaos oder persönliche Vendettas — doch in vielen Geschichten treibt ihn auch ein tieferer, obsessiver Hass auf bestimmte Gegner.</p>
+
+
+<h2 style="margin-top:18px">Fähigkeiten</h2>
+<p>Bullseye besitzt keine übernatürlichen Kräfte, ist jedoch auf einem nahezu übermenschlichen Niveau trainiert: ausgezeichnete Reflexe, unschlagbare Zielgenauigkeit, Kampferfahrung und die Fähigkeit, improvisierte Waffen einzusetzen. Kombiniert mit taktischem Verstand macht ihn das zu einem der gefährlichsten Gegenspieler im Marvel-Universum.</p>
+
+
+<section style="margin-top:18px">
+<h2>Wichtige Storylines</h2>
+<ul>
+<li><strong>Konflikte mit Daredevil:</strong> Zahlreiche Story-Arcs zeigen sie als direkten Gegenspieler, oft mit persönlichen Konsequenzen für beide Seiten.</li>
+<li><strong>Auftragsmorde:</strong> Bullseye tritt mehrfach als Auftragskiller auf, dessen Arbeit moralische und politische Spannungen in Marvel-Geschichten auslöst.</li>
+<li><strong>Psychologische Porträts:</strong> Einige Geschichten tauchen tief in seine Psyche ein und zeigen die Ursprünge seiner Pathologien.</li>
+</ul>
+</section>
+
+
+<section class="timeline" aria-label="Wichtige Stationen">
+<div class="event">
+<div class="dot" aria-hidden></div>
+<div>
+<time>1976</time>
+<p>Erstauftritt in den Daredevil-Comics — Einführung als tödlicher Konkurrent.</p>
+</div>
+</div>
+
+
+<div class="event">
+<div class="dot"></div>
+<div>
+<time>Wesentliche Aufeinandertreffen</time>
+<p>Mehrere Schlüsselmomente in Daredevil-Storylines, die Bullseye als wiederkehrende Bedrohung etablieren.</p>
+</div>
+</div>
+
+
+<div class="event">
+<div class="dot"></div>
+<div>
+<time>Moderne Adaptionen</time>
+<p>Auftritte in TV-Serien und anderen Medien, die seine Präsenz über die Comics hinaus verbreitert haben.</p>
+</div>
+</div>
+</section>
+
+
+<footer>
+<p class="muted">Hinweis: Diese Zusammenfassung ist als übersichtliche Einführung gedacht. Für tiefere Recherchen lohnt sich ein Blick in die jeweiligen Comics und offiziellen Quellen.</p>
+</footer>
+</article>
+
+
+<aside>
+<div class="card">
+<h3>Fakten & Fähigkeiten</h3>
+<div class="abilities">
+<div class="ability">Präzision & Zielgenauigkeit</div>
+<div class="ability">Improvisierte Waffenverwendung</div>
+<div class="ability">Taktische Intelligenz</div>
+<div class="ability">Hohe Schmerztoleranz</div>
+</div>
+
+<h3 style="margin-top:14px">Kurzinfos</h3>
+<p class="muted" style="font-size:14px">Rollen: Antagonist<br>Bekannt aus: Comics, TV-Adaptionen<br>Typ: Menschlicher Superschurke</p>
+</div>
+</aside>
+</main>
+</div>
+
+
+<script>
+function toggleTheme(){
+const root = document.documentElement;
+const isLight = root.style.getPropertyValue('--bg') === '#0f1724' ? false : true;
+if(!isLight){
+root.style.setProperty('--bg','#f7fafc');
+root.style.setProperty('--card','#ffffff');
+root.style.setProperty('--muted','#475569');
+root.style.setProperty('--accent','#b91c1c');
+document.body.style.color = '#081827';
+document.querySelector('button[onclick="toggleTheme()"]').textContent = 'Dunkles Layout';
+} else {
+root.style.setProperty('--bg','#0f1724');
+root.style.setProperty('--card','#0b1220');
+root.style.setProperty('--muted','#9aa8b2');
+root.style.setProperty('--accent','#e11d48');
+document.body.style.color = '#e6eef6';
+document.querySelector('button[onclick="toggleTheme()"]').textContent = 'Helles Layout';
+}
+}
+</script>
+</body>
